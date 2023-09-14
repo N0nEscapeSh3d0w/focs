@@ -129,9 +129,10 @@ def coursesSingel(id):
         progress_cursor.execute(progress_statement, (id))
         progr = progress_cursor.fetchall()
         progress_cursor.close()
+        return render_template('courses-singel.html', programme=prog, outline=out, career=care, progress=progr)
 
         
-    return render_template('courses-singel.html', programme=prog, outline=out, career=care, progress=progr)
+    return render_template('courses-singel.html', programme=prog, outline=out, career=care)
 
 
 
