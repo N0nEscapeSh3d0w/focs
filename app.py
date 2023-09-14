@@ -44,7 +44,7 @@ def course(id):
         doc_cursor1.execute(doc_statement1)
         lvl = doc_cursor.fetchone()
         
-        return render_template('courses.html', prog=result, name=lvl)
+        return render_template('courses.html', prog=result, name=lvl[1])
 
     elif id == 2:#master
         doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 2"
@@ -57,7 +57,7 @@ def course(id):
         doc_cursor1.execute(doc_statement1)
         lvl = doc_cursor.fetchone()
         
-        return render_template('courses.html', prog=result, name=lvl)
+        return render_template('courses.html', prog=result, name=lvl[1])
 
     elif id == 3: #bachelor
         doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 3"
@@ -70,7 +70,7 @@ def course(id):
         doc_cursor1.execute(doc_statement1)
         lvl = doc_cursor.fetchone()
         
-        return render_template('courses.html', prog=result, name=lvl)
+        return render_template('courses.html', prog=result, name=lvl[1])
         
     elif id == 4: #diploma
         doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 4"
@@ -83,7 +83,7 @@ def course(id):
         doc_cursor1.execute(doc_statement1)
         lvl = doc_cursor.fetchone()
         
-        return render_template('courses.html', prog=result, name=lvl)
+        return render_template('courses.html', prog=result, name=lvl[1])
 
     else:
         return render_template('index.html')
