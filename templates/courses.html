@@ -198,7 +198,7 @@
 
 
                 {% for row in prog %}
-                    <li><a href="">{{row[1]}}&nbsp;</a><i class="fa fa-external-link-square gold-orange"></i></li>
+                    <li><a href="{{ url_for('courses-singel', id=row[0]) }}">{{row[1]}}&nbsp;</a><i class="fa fa-external-link-square gold-orange"></i></li>
                 {% endfor %}
                 
                 </ul>
