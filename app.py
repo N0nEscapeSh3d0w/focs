@@ -31,7 +31,7 @@ def home():
     return render_template('index.html')
 
 @app.route('/courses/<int:id>')
-def course(id):
+def courses(id):
 
     if id == 1: #doc
         doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 1"
