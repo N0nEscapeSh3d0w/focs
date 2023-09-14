@@ -42,7 +42,7 @@ def course(id):
         doc_statement1 = "SELECT * FROM ProgrammeLevel WHERE lvl_id = 1"
         doc_cursor1 = db_conn.cursor()
         doc_cursor1.execute(doc_statement1)
-        lvl = doc_cursor.fetchone()
+        lvl = doc_cursor1.fetchone()
         
         return render_template('courses.html', prog=result, name=lvl)
 
@@ -55,7 +55,7 @@ def course(id):
         doc_statement1 = "SELECT * FROM ProgrammeLevel WHERE lvl_id = 2"
         doc_cursor1 = db_conn.cursor()
         doc_cursor1.execute(doc_statement1)
-        lvl = doc_cursor.fetchone()
+        lvl = doc_cursor1.fetchone()
         
         return render_template('courses.html', prog=result, name=lvl)
 
@@ -68,7 +68,7 @@ def course(id):
         doc_statement1 = "SELECT * FROM ProgrammeLevel WHERE lvl_id = 3"
         doc_cursor1 = db_conn.cursor()
         doc_cursor1.execute(doc_statement1)
-        lvl = doc_cursor.fetchone()
+        lvl = doc_cursor1.fetchone()
         
         return render_template('courses.html', prog=result, name=lvl)
         
@@ -81,7 +81,7 @@ def course(id):
         doc_statement1 = "SELECT * FROM ProgrammeLevel WHERE lvl_id = 4"
         doc_cursor1 = db_conn.cursor()
         doc_cursor1.execute(doc_statement1)
-        lvl = doc_cursor.fetchone()
+        lvl = doc_cursor1.fetchone()
         
         return render_template('courses.html', prog=result, name=lvl)
 
