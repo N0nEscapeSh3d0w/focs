@@ -42,9 +42,9 @@ def course(id):
         doc_statement1 = "SELECT * FROM ProgrammeLevel WHERE lvl_id = 1"
         doc_cursor1 = db_conn.cursor()
         doc_cursor1.execute(doc_statement1)
-        result1 = doc_cursor.fetchone()
+        lvl = doc_cursor.fetchone()
         
-        return render_template('courses.html', prog=result, name=result1)
+        return render_template('courses.html', prog=result, name=lvl)
 
     elif id == 2:#master
         doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 2"
@@ -55,9 +55,9 @@ def course(id):
         doc_statement1 = "SELECT * FROM ProgrammeLevel WHERE lvl_id = 2"
         doc_cursor1 = db_conn.cursor()
         doc_cursor1.execute(doc_statement1)
-        result1 = doc_cursor.fetchone()
+        lvl = doc_cursor.fetchone()
         
-        return render_template('courses.html', prog=result, name=result1)
+        return render_template('courses.html', prog=result, name=lvl)
 
     elif id == 3: #bachelor
         doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 3"
@@ -65,12 +65,12 @@ def course(id):
         doc_cursor.execute(doc_statement)
         result = doc_cursor.fetchall()
 
-        doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 3"
+        doc_statement1 = "SELECT * FROM ProgrammeLevel WHERE lvl_id = 3"
         doc_cursor1 = db_conn.cursor()
         doc_cursor1.execute(doc_statement1)
-        result1 = doc_cursor.fetchone()
+        lvl = doc_cursor.fetchone()
         
-        return render_template('courses.html', prog=result, name=result1)
+        return render_template('courses.html', prog=result, name=lvl)
         
     elif id == 4: #diploma
         doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 4"
@@ -81,9 +81,9 @@ def course(id):
         doc_statement1 = "SELECT * FROM ProgrammeLevel WHERE lvl_id = 4"
         doc_cursor1 = db_conn.cursor()
         doc_cursor1.execute(doc_statement1)
-        result1 = doc_cursor.fetchone()
+        lvl = doc_cursor.fetchone()
         
-        return render_template('courses.html', prog=result, name=result1)
+        return render_template('courses.html', prog=result, name=lvl)
 
     else:
         return render_template('index.html')
