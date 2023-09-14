@@ -187,7 +187,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="page-banner-cont">
-                        <h2>{{name}}</h2>
+                        <h2>{{name[1]}}</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -223,11 +223,11 @@
                     </div> <!-- courses top search -->
                 </div>
             </div> <!-- row -->
-            <div class="col-md-20"> <br> The Faculty of Computing and Information Technology (FOCS) offers the following {{name}} programmes:</div><br>
-            <i class="fa fa-database"></i> <b>Diploma Programmes</b>
+            <div class="col-md-20"> <br> The Faculty of Computing and Information Technology (FOCS) offers the following {{name[1]}} programmes:</div><br>
+            <i class="fa fa-database"></i> <b>{{name[1]}} Programmes</b>
             <ul style="margin: 10px;">
 
-               {{prog}}
+
                 {% for row in prog %}
                     <li><a href="courses-singel.html">{{row[1]}}&nbsp;</a><i class="fa fa-external-link-square gold-orange"></i></li>
                 {% endfor %}
