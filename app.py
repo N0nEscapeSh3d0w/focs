@@ -30,7 +30,7 @@ output = {}
 def home():
     return render_template('index.html')
 
-@app.route('/course/<int:id>')
+@app.route('/courses/<int:id>')
 def course(id):
 
     if id == 1: #doc
@@ -38,11 +38,13 @@ def course(id):
         doc_cursor = db_conn.cursor()
         doc_cursor.execute(doc_statement)
         result = doc_cursor.fetchall()
+        doc_cursor.close()
 
         doc_statement1 = "SELECT * FROM ProgrammeLevel WHERE lvl_id = 1"
         doc_cursor1 = db_conn.cursor()
         doc_cursor1.execute(doc_statement1)
         lvl = doc_cursor1.fetchone()
+        doc_cursor1.close()
         
         return render_template('courses.html', prog=result, name=lvl)
 
@@ -51,11 +53,13 @@ def course(id):
         doc_cursor = db_conn.cursor()
         doc_cursor.execute(doc_statement)
         result = doc_cursor.fetchall()
+        doc_cursor.close()
 
         doc_statement1 = "SELECT * FROM ProgrammeLevel WHERE lvl_id = 2"
         doc_cursor1 = db_conn.cursor()
         doc_cursor1.execute(doc_statement1)
         lvl = doc_cursor1.fetchone()
+        doc_cursor1.close()
         
         return render_template('courses.html', prog=result, name=lvl)
 
@@ -64,11 +68,13 @@ def course(id):
         doc_cursor = db_conn.cursor()
         doc_cursor.execute(doc_statement)
         result = doc_cursor.fetchall()
+        doc_cursor.close()
 
         doc_statement1 = "SELECT * FROM ProgrammeLevel WHERE lvl_id = 3"
         doc_cursor1 = db_conn.cursor()
         doc_cursor1.execute(doc_statement1)
         lvl = doc_cursor1.fetchone()
+        doc_cursor1.close()
         
         return render_template('courses.html', prog=result, name=lvl)
         
@@ -77,16 +83,55 @@ def course(id):
         doc_cursor = db_conn.cursor()
         doc_cursor.execute(doc_statement)
         result = doc_cursor.fetchall()
+        doc_cursor.close()
 
         doc_statement1 = "SELECT * FROM ProgrammeLevel WHERE lvl_id = 4"
         doc_cursor1 = db_conn.cursor()
         doc_cursor1.execute(doc_statement1)
         lvl = doc_cursor1.fetchone()
+        doc_cursor1.close()
         
         return render_template('courses.html', prog=result, name=lvl)
 
     else:
         return render_template('index.html')
+
+
+
+@app.route('/courses-singel/<int:id>')
+def courseSingel(id):
+
+    #get programme
+    statement = "SELECT * FROM Programme WHERE prog_id = %s"
+    cursor = db_conn.cursor()
+    cursor.execute(statement, (id))
+    prog = cursor.fetchone()
+    cursor.close()
+
+    #get all outline
+    outline_statement = "SELECT * FROM Outline WHERE prog_id = %s"
+    outline_cursor = db_conn.cursor()
+    outline_cursor.execute(outline_statement, (id))
+    out = outline_cursor.fetchall()
+    outline_cursor.close()
+
+    #get all carrer
+    career_statement = "SELECT * FROM Outline WHERE prog_id = %s"
+    career_cursor = db_conn.cursor()
+    career_cursor.execute(career_statement, (id))
+    care = career_cursor.fetchall()
+    career_cursor.close()
+
+    #get progession
+    if prog[1] == "4":
+        progress_statement = "SELECT Progression.future, Programme.prog_name FROM Programme INNER JOIN Progression ON Programme.prog_id = Progression.current WHERE Progression.current = %s"
+        progress_cursor = db_conn.cursor()
+        progress_cursor.execute(progress_statement, (id))
+        progr = progress_cursor.fetchall()
+        progress_cursor.close()
+
+        
+    return render_template('courses-singel.html', programme=prog, outline=out, career=care, progress=progr)
 
 
 
