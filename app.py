@@ -99,7 +99,7 @@ def courses(id):
 
 
 @app.route('/courses-singel/<int:id>')
-def courseSingel(id):
+def courses-singel(id):
 
     #get programme
     statement = "SELECT * FROM Programme WHERE prog_id = %s"
