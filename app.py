@@ -33,61 +33,60 @@ def home():
 @app.route('/course/<int:id>')
 def course(id):
 
-    match id:
-        case 1: #doc
-            doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 1"
-            doc_cursor = db_conn.cursor()
-            doc_cursor.execute(doc_statement)
-            result = doc_cursor.fetchone()
+    if id == 1: #doc
+        doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 1"
+        doc_cursor = db_conn.cursor()
+        doc_cursor.execute(doc_statement)
+        result = doc_cursor.fetchone()
 
-            doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 1"
-            doc_cursor1 = db_conn.cursor()
-            doc_cursor1.execute(doc_statement1)
-            result1 = doc_cursor.fetchone()
-            
-            return render_template('course.html', prog=result, name=result1)
-
-        case 2: #master
-            doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 2"
-            doc_cursor = db_conn.cursor()
-            doc_cursor.execute(doc_statement)
-            result = doc_cursor.fetchone()
-
-            doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 2"
-            doc_cursor1 = db_conn.cursor()
-            doc_cursor1.execute(doc_statement1)
-            result1 = doc_cursor.fetchone()
-            
-            return render_template('course.html', prog=result, name=result1)
-
-        case 3: #bachelor
-            doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 3"
-            doc_cursor = db_conn.cursor()
-            doc_cursor.execute(doc_statement)
-            result = doc_cursor.fetchone()
-
-            doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 3"
-            doc_cursor1 = db_conn.cursor()
-            doc_cursor1.execute(doc_statement1)
-            result1 = doc_cursor.fetchone()
-            
-            return render_template('course.html', prog=result, name=result1)
+        doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 1"
+        doc_cursor1 = db_conn.cursor()
+        doc_cursor1.execute(doc_statement1)
+        result1 = doc_cursor.fetchone()
         
-        case 4: #diploma
-            doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 4"
-            doc_cursor = db_conn.cursor()
-            doc_cursor.execute(doc_statement)
-            result = doc_cursor.fetchone()
+        return render_template('course.html', prog=result, name=result1)
 
-            doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 4"
-            doc_cursor1 = db_conn.cursor()
-            doc_cursor1.execute(doc_statement1)
-            result1 = doc_cursor.fetchone()
-            
-            return render_template('course.html', prog=result, name=result1)
+    elif id == 2:#master
+        doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 2"
+        doc_cursor = db_conn.cursor()
+        doc_cursor.execute(doc_statement)
+        result = doc_cursor.fetchone()
 
-        case _:
-            return render_template('index.html')
+        doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 2"
+        doc_cursor1 = db_conn.cursor()
+        doc_cursor1.execute(doc_statement1)
+        result1 = doc_cursor.fetchone()
+        
+        return render_template('course.html', prog=result, name=result1)
+
+    elif id == 3: #bachelor
+        doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 3"
+        doc_cursor = db_conn.cursor()
+        doc_cursor.execute(doc_statement)
+        result = doc_cursor.fetchone()
+
+        doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 3"
+        doc_cursor1 = db_conn.cursor()
+        doc_cursor1.execute(doc_statement1)
+        result1 = doc_cursor.fetchone()
+        
+        return render_template('course.html', prog=result, name=result1)
+        
+    elif id == 4: #diploma
+        doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 4"
+        doc_cursor = db_conn.cursor()
+        doc_cursor.execute(doc_statement)
+        result = doc_cursor.fetchone()
+
+        doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 4"
+        doc_cursor1 = db_conn.cursor()
+        doc_cursor1.execute(doc_statement1)
+        result1 = doc_cursor.fetchone()
+        
+        return render_template('course.html', prog=result, name=result1)
+
+    else:
+        return render_template('index.html')
 
 
 
