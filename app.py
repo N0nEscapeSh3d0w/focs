@@ -37,7 +37,7 @@ def course(id):
         doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 1"
         doc_cursor = db_conn.cursor()
         doc_cursor.execute(doc_statement)
-        result = doc_cursor.fetchone()
+        result = doc_cursor.fetchall()
 
         doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 1"
         doc_cursor1 = db_conn.cursor()
@@ -50,7 +50,7 @@ def course(id):
         doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 2"
         doc_cursor = db_conn.cursor()
         doc_cursor.execute(doc_statement)
-        result = doc_cursor.fetchone()
+        result = doc_cursor.fetchall()
 
         doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 2"
         doc_cursor1 = db_conn.cursor()
@@ -63,7 +63,7 @@ def course(id):
         doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 3"
         doc_cursor = db_conn.cursor()
         doc_cursor.execute(doc_statement)
-        result = doc_cursor.fetchone()
+        result = doc_cursor.fetchall()
 
         doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 3"
         doc_cursor1 = db_conn.cursor()
@@ -76,7 +76,7 @@ def course(id):
         doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 4"
         doc_cursor = db_conn.cursor()
         doc_cursor.execute(doc_statement)
-        result = doc_cursor.fetchone()
+        result = doc_cursor.fetchall()
 
         doc_statement1 = "SELECT lvl_name FROM ProgrammeLevel WHERE lvl_id = 4"
         doc_cursor1 = db_conn.cursor()
