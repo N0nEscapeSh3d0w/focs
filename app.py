@@ -100,12 +100,19 @@ def courses(id):
 
 @app.route('/courses-singel/<int:id>')
 def coursesSingel(id):
-
+    
     #get programme
     statement = "SELECT * FROM Programme WHERE prog_id = %s"
     cursor = db_conn.cursor()
     cursor.execute(statement, (id))
     prog = cursor.fetchone()
+    cursor.close()
+
+    #get level
+    statement = "SELECT * FROM ProgrammeLevel WHERE lvl_id = %s"
+    cursor = db_conn.cursor()
+    cursor.execute(statement, (prog[1]))
+    lvl = cursor.fetchone()
     cursor.close()
 
     #get all outline
@@ -116,7 +123,7 @@ def coursesSingel(id):
     outline_cursor.close()
 
     #get all carrer
-    career_statement = "SELECT * FROM Outline WHERE prog_id = %s"
+    career_statement = "SELECT * FROM Career WHERE prog_id = %s"
     career_cursor = db_conn.cursor()
     career_cursor.execute(career_statement, (id))
     care = career_cursor.fetchall()
@@ -129,10 +136,10 @@ def coursesSingel(id):
         progress_cursor.execute(progress_statement, (id))
         progr = progress_cursor.fetchall()
         progress_cursor.close()
-        return render_template('courses-singel.html', programme=prog, outline=out, career=care, progress=progr)
+        return render_template('courses-singel.html', programme=prog, outline=out, career=care, progress=progr, level=lvl)
 
         
-    return render_template('courses-singel.html', programme=prog, outline=out, career=care)
+    return render_template('courses-singel.html', programme=prog, outline=out, career=care, level=lvl)
 
 
 
