@@ -287,6 +287,21 @@
                                             <br>
                                             <p>{{programme[6]}}</p>
                                         </div>
+
+                                     <!--Progression-->
+                                        {% if level[0] == '4' %}
+                                          <div class="singel-description pt-25" >
+                                            <h4> Academic Progression:</h4>
+
+                                             {% for row in progress %}
+                                                <ul style="margin: 10px; list-style-type: circle;">
+                                                    <li>{{row[1]}}</li>
+                                                </ul>
+                                            {% endfor %}
+                                          {% endif %}
+                                            
+                                           
+                                        </div>
                                     </div>
                                 </div>
                                 <!--Requirements-->
@@ -328,6 +343,8 @@
                                             
                                            
                                         </div>
+
+  
                                     </div> 
                                 </div>
                                  <!--Fees-->
