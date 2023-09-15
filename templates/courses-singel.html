@@ -305,13 +305,8 @@
                                     <div class="outline">
                                         <div class="outline-description pt-25">
                                             <h4><i class="fa fa-book gold-orange"></i>Programme Outline:</h4>
-                                            
-                                            {% for row in outline %}
-                                                <ul style="margin: 10px; list-style-type: circle;" >
-                                                    <li>{{row[2]}}</li>
-                                                </ul>
-                                            (% endfor %}
-                                            
+                                        
+                                                {{outline}}
                                         </div>
                                     </div>
                                 </div>
@@ -320,7 +315,12 @@
                                     <div class="career-cont">
                                         <div class="title pt-25" >
                                             <h4>Career Prospects:</h4>
-                                            
+
+                                             {% for row in career %}
+                                                <ul style="margin: 10px; list-style-type: circle;">
+                                                    <li>{{row[2]}}</li>
+                                                </ul>
+                                            {% endfor %}
                                             
                                            
                                         </div>
