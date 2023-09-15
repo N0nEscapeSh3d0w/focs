@@ -131,7 +131,7 @@ def coursesSingel(id):
 
     #get progession
     if prog[1] == "4":
-        progress_statement = "SELECT Progression.future, Programme.prog_name FROM Programme INNER JOIN Progression ON Programme.prog_id = Progression.current WHERE Progression.current = %s"
+        progress_statement = "SELECT Progression.future, Programme.prog_name FROM Programme INNER JOIN Progression ON Programme.prog_id = Progression.future WHERE Progression.current = %s"
         progress_cursor = db_conn.cursor()
         progress_cursor.execute(progress_statement, (id))
         progr = progress_cursor.fetchall()
