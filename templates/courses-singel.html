@@ -288,10 +288,19 @@
                                             <p>{{programme[6]}}</p>
                                         </div>
 
-                                       <div class="singel-description pt-10">
+                                        {% if level[0] == '4'}
+                                       <div class="singel-description pt-25">
                                             <h4>Achedemic Progression</h4>
-                                            <h6>Graduates may be admitted into Year 2 of:</h6>
+                                           <br>
+                                            <p><b>Graduates may be admitted into Year 2 of:</b></p>
+                                           <br>
+                                            {% for row in progress %}
+                                                <ul style="margin: 10px; list-style-type: circle;">
+                                                    <li>{{row[1]}}</li>
+                                                </ul>
+                                            {% endfor %}
                                        </div>
+                                        {% endif %}
 
                                    
                                     </div>
