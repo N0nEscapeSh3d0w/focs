@@ -169,7 +169,6 @@ p {
 }
 
 
-
 /*===== All Section Title Style =====*/
 
 .section-title{}
@@ -3093,6 +3092,7 @@ p {
     padding: 40px 50px 35px;
     background-color: #fff;
     border-radius: 5px;
+    height: 690px;
 }
 .teachers-left .hero img{
     width: 100%;
@@ -3116,6 +3116,7 @@ p {
 }
 .teachers-left .social ul li{
     display: inline-block;
+    padding-top: 20px;
 }
 .teachers-left .social ul li a{
     font-size: 30px;
