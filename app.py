@@ -100,53 +100,59 @@ def courses(id):
 
 @app.route('/courses-singel/<int:id>')
 def coursesSingel(id):
-    
-    #get programme
-    statement = "SELECT * FROM Programme WHERE prog_id = %s"
-    cursor = db_conn.cursor()
-    cursor.execute(statement, (id))
-    prog = cursor.fetchone()
-    cursor.close()
+    try:
+        # Get programme
+        statement = "SELECT * FROM Programme WHERE prog_id = %s"
+        cursor = db_conn.cursor()
+        cursor.execute(statement, (id))
+        prog = cursor.fetchone()
+        cursor.close()
 
-    #get level
-    statement = "SELECT * FROM ProgrammeLevel WHERE lvl_id = %s"
-    cursor = db_conn.cursor()
-    cursor.execute(statement, (prog[1]))
-    lvl = cursor.fetchone()
-    cursor.close()
+        # Get level
+        statement = "SELECT * FROM ProgrammeLevel WHERE lvl_id = %s"
+        cursor = db_conn.cursor()
+        cursor.execute(statement, (prog[1]))
+        lvl = cursor.fetchone()
+        cursor.close()
 
-    #get all outline
-    outline_statement = "SELECT * FROM Outline WHERE prog_id = %s"
-    outline_cursor = db_conn.cursor()
-    outline_cursor.execute(outline_statement, (id))
-    out = outline_cursor.fetchall()
-    outline_cursor.close()
+        # Get all outline
+        outline_statement = "SELECT * FROM Outline WHERE prog_id = %s"
+        outline_cursor = db_conn.cursor()
+        outline_cursor.execute(outline_statement, (id))
+        out = outline_cursor.fetchall()
+        outline_cursor.close()
 
-    #get all carrer
-    career_statement = "SELECT * FROM Career WHERE prog_id = %s"
-    career_cursor = db_conn.cursor()
-    career_cursor.execute(career_statement, (id))
-    care = career_cursor.fetchall()
-    career_cursor.close()
+        # Get all career
+        career_statement = "SELECT * FROM Career WHERE prog_id = %s"
+        career_cursor = db_conn.cursor()
+        career_cursor.execute(career_statement, (id))
+        care = career_cursor.fetchall()
+        career_cursor.close()
 
-    #get progession
-    if prog[1] == "4":
-        
-      progress_statement = """
+        # Get progression
+        if prog[1] == 4:
+            progress_statement = """
                 SELECT Progression.future, Programme.prog_name
                 FROM Programme
                 INNER JOIN Progression ON Programme.prog_id = Progression.future
                 WHERE Progression.current = %s
             """
-        progress_cursor = db_conn.cursor()
-        progress_cursor.execute(progress_statement, (id,))
-        gress = progress_cursor.fetchall()
-        progress_cursor.close()
-        
-        return render_template('courses-singel.html', programme=prog, outline=out, career=care, progress=gress, level=lvl)
+            progress_cursor = db_conn.cursor()
+            progress_cursor.execute(progress_statement, (id,))
+            gress = progress_cursor.fetchall()
+            progress_cursor.close()
 
-        
-    return render_template('courses-singel.html', programme=prog, outline=out, career=care, level=lvl)
+            # Debug: Print progression results
+            print("Progression Results:", gress)
+
+            return render_template('courses-singel.html', programme=prog, outline=out, career=care, progress=gress, level=lvl)
+
+        return render_template('courses-singel.html', programme=prog, outline=out, career=care, level=lvl)
+
+    except Exception as e:
+        # Handle exceptions, print the error message, and return an error page if needed
+        print("Error:", str(e))
+        return render_template('error.html', error_message=str(e))
 
 
 
