@@ -227,19 +227,19 @@
                                         <h6>{{programme[5]}}</h6>
                                     </div>
                                 </li>
-                                {% if programme[3] is not None: %}
+                                {% if programme[3] is not None %}
                                 <li>
                                     <div class="my-fees">
                                         <span>Local Students Fees</span>
-                                        <h6>RM 35,600 </h6>
+                                        <h6>{{programme[3]}}</h6>
                                     </div>
                                 </li>
                                 {% endif %}
-                               {% if programme[4] is not None: %}
+                               {% if programme[4] is not None %}
                                 <li>
                                     <div class="fg-fees">
                                         <span>Foreign Students Fees</span>
-                                        <h6>RM 67,000 </h6>
+                                        <h6>{{programme[4]}}</h6>
                                     </div>
                                 </li>
                                 {% endif %}
