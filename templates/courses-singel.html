@@ -288,7 +288,7 @@
                                             <p>{{programme[6]}}</p>
                                         </div>
 
-                                        {% if level[0] == '4' %}
+                                        {% if level[0] == 4 %}
                                            <div class="singel-description pt-25">
                                                 <h4>Achedemic Progression</h4>
                                                <br>
@@ -299,10 +299,6 @@
                                                           <li><a href="{{ url_for('coursesSingel', id=row[0]) }}">{{row[1]}}&nbsp;</a><i class="fa fa-external-link-square gold-orange"></i></li>
                                                     {% endfor %}
                                                 </ul>
-                                            
-
-
-  
                                            </div>
                                         {% endif %}
 
