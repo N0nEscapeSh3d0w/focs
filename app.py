@@ -49,7 +49,7 @@ def courses(id):
         return render_template('courses.html', prog=result, name=lvl)
 
     elif id == 2:#master
-        doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 2"
+        doc_statement = "SELECT prog_id, prog_name, prog_duration FROM Programme WHERE lvl_id = 2"
         doc_cursor = db_conn.cursor()
         doc_cursor.execute(doc_statement)
         result = doc_cursor.fetchall()
@@ -64,7 +64,7 @@ def courses(id):
         return render_template('courses.html', prog=result, name=lvl)
 
     elif id == 3: #bachelor
-        doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 3"
+        doc_statement = "SELECT prog_id, prog_name, prog_duration FROM Programme WHERE lvl_id = 3"
         doc_cursor = db_conn.cursor()
         doc_cursor.execute(doc_statement)
         result = doc_cursor.fetchall()
@@ -79,7 +79,7 @@ def courses(id):
         return render_template('courses.html', prog=result, name=lvl)
         
     elif id == 4: #diploma
-        doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 4"
+        doc_statement = "SELECT prog_id, prog_name, prog_duration FROM Programme WHERE lvl_id = 4"
         doc_cursor = db_conn.cursor()
         doc_cursor.execute(doc_statement)
         result = doc_cursor.fetchall()
