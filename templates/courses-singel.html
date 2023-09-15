@@ -197,8 +197,8 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item"><a href="#">Programme</a></li>
-                                <li class="breadcrumb-item"><a href="#">Diploma</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Diploma in Computer Science</li>
+                                <li class="breadcrumb-item"><a href="#">{{level[1]}}</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{programme[2]}}</li>
                             </ol>
                         </nav>
                     </div> <!-- page banner cont -->
@@ -217,7 +217,7 @@
                 <div class="col-lg-12">
                     <div class="corses-singel-left mt-10">
                         <div class="title">
-                            <h3>{{programme[1]}}</h3>
+                            <h3>{{programme[2]}}</h3>
                         </div> <!-- title -->
                         <div class="course-terms">
                             <ul>
@@ -305,8 +305,7 @@
                                     <div class="outline">
                                         <div class="outline-description pt-25">
                                             <h4><i class="fa fa-book gold-orange"></i>Programme Outline:</h4>
-                                        
-                                                {{outline}}
+                                            
                                                 {% for row in outline %}
                                                     <ul style="margin: 10px; list-style-type: circle;">
                                                         <li>{{row[2]}}</li>
@@ -337,7 +336,15 @@
                                         <div class="title pt-25">
                                             <h4>Fees & Financial Aid:</h4>
                                             <br>
-                                            <p>Estimated Total Fees : RM 17,600 (Malaysian Student), RM33,300 (International Student)</p>
+                                             {% if programme[3] != None and programme[4] != None %}
+                                                <p>Estimated Total Fees : RM {{programme[3]}} (Malaysian Student), RM {{programme[4]}} (International Student)</p>
+                                            {% elif programme[3] != None and programme[4] == None %}
+                                                   <p>Estimated Total Fees : RM {{programme[3]}} (Malaysian Student)</p>
+                                            {% else %}
+                                                    <p>Estimated Total Fees : - </p>
+                                            {% endif %}
+                                            
+                                           
                                         </div>
                                     </div> 
                                 </div>
