@@ -217,28 +217,32 @@
                 <div class="col-lg-12">
                     <div class="corses-singel-left mt-10">
                         <div class="title">
-                            <h3>Diploma in Computer Science</h3>
+                            <h3>{{programme[1]}}</h3>
                         </div> <!-- title -->
                         <div class="course-terms">
                             <ul>
                                 <li>
                                     <div class="intake">
                                         <span>Intake Time</span>
-                                        <h6>JUL / 2022</h6>
+                                        <h6>{{programme[5]}}</h6>
                                     </div>
                                 </li>
+                                {% if programme[3] is not None: %}
                                 <li>
                                     <div class="my-fees">
                                         <span>Local Students Fees</span>
                                         <h6>RM 35,600 </h6>
                                     </div>
                                 </li>
+                                {% endif %}
+                               {% if programme[4] is not None: %}
                                 <li>
                                     <div class="fg-fees">
                                         <span>Foreign Students Fees</span>
                                         <h6>RM 67,000 </h6>
                                     </div>
                                 </li>
+                                {% endif %}
                             </ul>
                         </div> <!-- course terms -->
 
