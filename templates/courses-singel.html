@@ -306,7 +306,11 @@
                                         <div class="outline-description pt-25">
                                             <h4><i class="fa fa-book gold-orange"></i>Programme Outline:</h4>
                                             
-                                          
+                                            {% for x in outline %}
+                                                <ul style="margin: 10px; list-style-type: circle;" >
+                                                    <li>{{x[2]}}</li>
+                                                </ul>
+                                            (% endfor %}
                                             
                                         </div>
                                     </div>
