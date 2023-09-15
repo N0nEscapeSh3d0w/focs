@@ -166,7 +166,7 @@
    
     <!--====== PAGE BANNER PART START ======-->
     
-    <section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8" style="background-image: url(images/page-banner-2.jpg)">
+    <section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8" style="background-image: url({{ url_for('static', filename='iimages/page-banner-2.jpg') }})">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -193,7 +193,7 @@
         <div class="container">
 
             <div class="col-md-20"> <br> The Faculty of Computing and Information Technology (FOCS) offers the following {{name[1]}} programmes:</div><br>
-            {{prog}}
+
            <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="courses-grid" role="tabpanel" aria-labelledby="courses-grid-tab">
                     <div class="row">
