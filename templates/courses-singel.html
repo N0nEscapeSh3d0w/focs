@@ -228,6 +228,23 @@
                                     </div>
                                 </li>
                                 {{programme}}
+
+                                {% if programme[3] != None %}
+                                <li>
+                                    <div class="my-fees">
+                                        <span>Local Students Fees</span>
+                                        <h6>{{programme[3]}}</h6>
+                                    </div>
+                                </li>
+                                {% endif %}
+                               {% if programme[4] != None %}
+                                <li>
+                                    <div class="fg-fees">
+                                        <span>Foreign Students Fees</span>
+                                        <h6>{{programme[4]}}</h6>
+                                    </div>
+                                </li>
+                                {% endif %}
                                
                             </ul>
                         </div> <!-- course terms -->
