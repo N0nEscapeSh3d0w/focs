@@ -288,18 +288,22 @@
                                             <p>{{programme[6]}}</p>
                                         </div>
 
-                                        {% if level[0] == '4'}
-                                       <div class="singel-description pt-25">
-                                            <h4>Achedemic Progression</h4>
-                                           <br>
-                                            <p><b>Graduates may be admitted into Year 2 of:</b></p>
-                                           <br>
-                                            {% for row in progress %}
-                                                <ul style="margin: 10px; list-style-type: circle;">
-                                                    <li>{{row[1]}}</li>
+                                        {% if level[0] == '4' %}
+                                           <div class="singel-description pt-25">
+                                                <h4>Achedemic Progression</h4>
+                                               <br>
+                                                <p><b>Graduates may be admitted into Year 2 of:</b></p>
+                                               <br>
+                                                <ul style="margin: 10px;">
+                                                    {% for row in progress %}
+                                                          <li><a href="{{ url_for('coursesSingel', id=row[0]) }}">{{row[1]}}&nbsp;</a><i class="fa fa-external-link-square gold-orange"></i></li>
+                                                    {% endfor %}
                                                 </ul>
-                                            {% endfor %}
-                                       </div>
+                                            
+
+
+  
+                                           </div>
                                         {% endif %}
 
                                    
