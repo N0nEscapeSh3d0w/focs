@@ -90,7 +90,7 @@
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item">
-                                        <a class="active" href="index.html">Home</a>
+                                        <a class="active" href="/">Home</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#about-part">about us</a>
@@ -194,14 +194,43 @@
 
             <div class="col-md-20"> <br> The Faculty of Computing and Information Technology (FOCS) offers the following {{name[1]}} programmes:</div><br>
             <i class="fa fa-database"></i> <b>{{name[1]}} Programmes</b>
-            <ul style="margin: 10px;">
 
+           <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="courses-grid" role="tabpanel" aria-labelledby="courses-grid-tab">
+                    <div class="row">
 
-                {% for row in prog %}
-                    <li><a href="{{ url_for('coursesSingel', id=row[0]) }}">{{row[1]}}&nbsp;</a><i class="fa fa-external-link-square gold-orange"></i></li>
-                {% endfor %}
+                     {% for row in prog %}
+                           <div class="col-lg-4 col-md-6">
+                               <div class="singel-course mt-30">
+                                   <div class="thum">
+                                       <div class="image">
+                                           <img src="{{ url_for('static', filename='images/course/cu-1.jpg') }}" alt="Course">
+                                       </div>
+                                       
+                                   </div>
+                                   <div class="cont">
+                                     
+                                       <a href="{{ url_for('coursesSingel', id=row[0]) }}"><h4>{{row[1]}}</h4></a>
+                                       <div class="course-teacher">
+                                        
+                                           <div class="name">
+                                               <h6>Study Years:</h6>
+                                               <p>{{row[2}}</p>
+                                           </div>
+                                          
+                                       </div>
+                                   </div>
+                               </div> <!-- singel course -->
+                           </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+           
+   
                 
-                </ul>
+           
         
         </div> <!-- container -->
     </section>
