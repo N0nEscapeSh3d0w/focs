@@ -227,7 +227,6 @@
                                         <h6>{{programme[5]}}</h6>
                                     </div>
                                 </li>
-                                {{programme}}
 
                                 {% if programme[3] != None %}
                                 <li>
@@ -286,10 +285,7 @@
                                         <div class="singel-description pt-25">
                                             <h4>Programme Overview</h4>
                                             <br>
-                                            <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem
-                                                quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio
-                                                sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum
-                                                velit. Nam nec tellus .</p>
+                                            <p>{{programme[6]}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -309,9 +305,11 @@
                                     <div class="outline">
                                         <div class="outline-description pt-25">
                                             <h4><i class="fa fa-book gold-orange"></i>Programme Outline:</h4>
+                                            {% for row in outline %}
                                             <ul style="margin: 10px; list-style-type: circle;" >
-                                                <li>Introduction to Information Technology</li>
+                                                <li>row[2]</li>
                                             </ul>
+                                            (% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -320,9 +318,12 @@
                                     <div class="career-cont">
                                         <div class="title pt-25" >
                                             <h4>Career Prospects:</h4>
+                                            
+                                            {% for row in career %}
                                             <ul style="margin: 10px; list-style-type: circle;">
-                                                <li>Junior Analyst Programmers</li>
+                                                <li>{{row[2]}}</li>
                                             </ul>
+                                            {% endfor %}
                                         </div>
                                     </div> 
                                 </div>
