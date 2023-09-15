@@ -34,7 +34,7 @@ def home():
 def courses(id):
 
     if id == 1: #doc
-        doc_statement = "SELECT prog_id, prog_name FROM Programme WHERE lvl_id = 1"
+        doc_statement = "SELECT prog_id, prog_name, prog_duration FROM Programme WHERE lvl_id = 1"
         doc_cursor = db_conn.cursor()
         doc_cursor.execute(doc_statement)
         result = doc_cursor.fetchall()
