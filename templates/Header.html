@@ -1,0 +1,94 @@
+    <header id="header-part">
+        <div class="header-logo-support pt-30 pb-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="https://www.tarc.edu.my/images/tarumt-logo1.png" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="support-button float-right d-none d-md-block">
+                            <div class="support float-left">
+                                <div class="focs">
+                                    <img src="/assets/images/focs logo.png" alt="icon" style="width:370px;height:100px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- header logo support -->
+
+        <div class="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+                        <nav class="navbar navbar-expand-lg">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                        <a class="active" href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#about-part">about us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="courses.html">Facilities</a>
+                                        <!-- <ul class="sub-menu">
+                                            <li><a href="courses.html">Courses</a></li>
+                                            <li><a href="courses-singel.html">Course Singel</a></li>
+                                        </ul> -->
+                                    </li>
+                                    <li class="nav-item">
+                                        <a>Programme</a>
+                                        <ul class="sub-menu">
+                                           <li><a href="{{ url_for('courses', id=4) }}">Diploma</a></li>
+                                            <li><a href="{{ url_for('courses', id=3) }}">Bachelor</a></li>
+                                            <li><a href="{{ url_for('courses', id=2) }}">Master Degree</a></li>
+                                            <li><a href="{{ url_for('courses', id=1) }}">Doctor of Philosophy</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="teachers.html">Staff</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="events.html">Research</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="events.html">Events</a></li>
+                                            <li><a href="events-singel.html">Event Singel</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="teachers.html">external advisors</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="teachers.html">teachers</a></li>
+                                            <li><a href="teachers-singel.html">teacher Singel</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav> <!-- nav -->
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+                        <div class="right-icon text-right">
+                            <ul>
+                                <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div> <!-- right icon -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div>
+
+    </header>
