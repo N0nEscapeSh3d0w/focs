@@ -30,6 +30,10 @@ output = {}
 def home():
     return render_template('index.html')
 
+@app.route("/staffs", methods=['GET', 'POST'])
+def home():
+    return render_template('staff.html')
+
 @app.route('/courses/<int:id>')
 def courses(id):
 
