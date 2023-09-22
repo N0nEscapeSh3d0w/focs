@@ -27,15 +27,11 @@ db_conn = connections.Connection(
 )
 output = {}
 
-def getIP():
+@app.route("/", methods=['GET', 'POST'])
+def home():
     hostname = socket.gethostname()
     ip_address = socket.gethostbyname(hostname)
     session['address'] = ip_address
-    return f'IP address ({session["address"]}) stored in session.'
-
-@app.route("/", methods=['GET', 'POST'])
-def home():
-    getIP()
     return render_template('index.html')
 
 @app.route("/staffs", methods=['GET', 'POST'])
