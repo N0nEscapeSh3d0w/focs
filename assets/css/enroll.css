@@ -154,7 +154,7 @@ body {
   background: grey;
 }
 
-.success-btn {
+.form button .success-btn {
   height: 55px;
   width: 100%;
   color: #000000;
