@@ -49,7 +49,25 @@ def enroll():
     result = doc_cursor.fetchall()
     doc_cursor.close()
 
-    return render_template('enroll.html', campus=result)
+    statement = "SELECT id, full_name FROM Subject"
+    cursor = db_conn.cursor()
+    cursor.execute(statement)
+    subj = cursor.fetchall()
+    cursor.close()
+
+    grad_statement = "SELECT value, name FROM Grade"
+    grad_cursor = db_conn.cursor()
+    grad_cursor.execute(grad_statement)
+    grad = grad_cursor.fetchall()
+    grad_cursor.close()
+
+    count_st = "SELECT COUNT(*) FROM Grade"
+    st_cursor = db_conn.cursor()
+    st_cursor.execute(count_st)
+    st = grad_cursor.fetchone()
+    st_cursor.close()
+
+    return render_template('enroll.html', campus=result, subject=subj, grade = grad, totalSubj = st)
 
 @app.route("/getSubjectWithCampus", methods=['GET'])
 def getSubjectWithCampus():
