@@ -306,28 +306,6 @@
             }
         }
 
-        function updateSubjectOptions() {
-            // Get selected subjects
-            const selectedSubjects = new Set();
-            for (let i = 1; i <= subjectCount; i++) {
-                const subjectDropdown = document.getElementById(`subject${i}`);
-                const selectedSubject = subjectDropdown.value;
-                if (selectedSubject !== "") {
-                    selectedSubjects.add(selectedSubject);
-                }
-            }
-
-            // Update subject options in all dropdowns
-            for (let i = 1; i <= maxSubject; i++) {
-                const subjectDropdown = document.getElementById(`subject${i}`);
-                subjectDropdown.innerHTML = '<option value="" disabled selected>Select Subject</option>';
-                {% for row in subject %}
-                    if (!selectedSubjects.has('{{row[0]}}')) {
-                        subjectDropdown.innerHTML += `<option value="{{row[0]}}">{{row[1]}}</option>`;
-                    }
-                {% endfor %}
-            }
-        }
 
         addButton.addEventListener("click", function () {
             if (subjectCount < maxSubject) {
@@ -365,9 +343,6 @@
                 }
 
                 updateButtonState();
-
-                // Update subject options in all dropdowns
-                updateSubjectOptions();
             }
             updateButtonState();
         });
