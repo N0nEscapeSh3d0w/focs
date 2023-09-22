@@ -6,6 +6,28 @@
     <!---enrol form css-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/enroll.css') }}">
 
+     <style>
+          /* Style for the Remove Subject button */
+          .remove-subject-button {
+            background-color: transparent;
+            border: none;
+            color: red;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 10px;
+          }
+          
+          /* Hide the Remove Subject button in the first three input boxes */
+          .input-box:nth-child(-n+3) .remove-subject-button {
+            display: none;
+          }
+          
+          /* Show the Remove Subject button in the additional input boxes */
+          .input-box:nth-child(n+4) .remove-subject-button {
+            display: inline-block;
+          }
+     </style>
 
 <body>
 
@@ -37,10 +59,18 @@
                     </div>
                 </div>
                 <div class="input-box">
-                    <label>Compulsory Subject & Grade</label>
+                    <label>Subject & Grade</label>
                     <div class="column">
 
-                        <input type="text" name="subject" placeholder="Enter Subject" required />
+                        <div class="select-box" name="subject" required>
+                            <select>
+                                  <option value="" disabled selected>Select Subject</option>
+                                   <option value="Math">Math</option>
+                                   <option value="Science">Science</option>
+                                   <option value="History">History</option>
+                            </select>
+                        </div>
+                         
                         <div class="select-box" name="grade">
                             <select>
                                 <option hidden>Grade</option>
@@ -57,23 +87,8 @@
                                 <option value="F">X</option>
                             </select>
                         </div>
-
+                         <button type="remove-subject-button" class="remove-subject-button">Remove Subject</button>
                     </div>
-
-                <div class="input-box">
-                    <label>Other Subject & Grade (3 Credit is required)</label>
-                    <div class="column">
-
-                        <input type="text" name="subject" placeholder="Enter Subject" required />
-                        <div class="select-box" name="grade">
-                            <select>
-                                <option hidden>Grade</option>
-                               
-                            </select>
-                        </div>
-
-                    </div>
-           
 
                 <div class="file-box input-box column">
                       <label>Result Certificate</label>
