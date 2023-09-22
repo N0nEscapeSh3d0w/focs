@@ -39,30 +39,34 @@
                 </div>
              <div id="input-container">
               <div class="input-box">
-                <label>Other Subject & Grade (3 Credit is required)</label>
-                <div class="column-wrapper">
-                  <div class="column">
-                    <select class="rn-select-subject" name="subject" required>
-                      <option value="" disabled selected>Select Subject</option>
-                      <option value="Math">Math</option>
-                      <option value="Science">Science</option>
-                      <option value="History">History</option>
-                      <!-- Add more subjects here -->
-                    </select>
-                  </div>
-                  <div class="column">
-                    <div class="select-box">
-                      <select name="grade">
-                        <option hidden>Grade</option>
-                        <!-- Add your grade options here -->
-                      </select>
-                    </div>
-                    <button type="button" class="remove-subject-button">Remove Subject</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button type="button" id="add-subject-button">Add Another Subject</button>
+                <label>Subject & Grade</label>
+                     <div class="column-wrapper">
+                            <div class="column">
+                              <select class="rn-select-subject" name="subject" required>
+                                <option value="" disabled selected>Select Subject</option>
+                                <option value="Math">Math</option>
+                                <option value="Science">Science</option>
+                                <option value="History">History</option>
+                                <!-- Add more subjects here -->
+                              </select>
+                            </div>
+
+                              <div class="select-box">
+                                <select name="grade">
+                                  <option hidden>Grade</option>
+                                  <!-- Add your grade options here -->
+                                   <option value="Math">A</option>
+                                   <option value="Science">B</option>
+                                   <option value="History">C</option>
+                                </select>
+                              </div>
+                    
+        
+                
+                   </div>
+                 </div>
+               <button type="button" id="add-subject-button" style="background:red;">Remove Subject</button>
+                 <button type="button" id="add-subject-button">Add Another Subject</button>
 
                 <div class="file-box input-box column">
                       <label>Result Certificate</label>
