@@ -64,7 +64,7 @@ def enroll():
     count_st = "SELECT COUNT(*) FROM Grade"
     st_cursor = db_conn.cursor()
     st_cursor.execute(count_st)
-    st = grad_cursor.fetchone()
+    st = grad_cursor.fetchone()[0]
     st_cursor.close()
 
     return render_template('enroll.html', campus=result, subject=subj, grade = grad, totalSubj = st)
