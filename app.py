@@ -35,6 +35,7 @@ def getIP():
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
+    getIP()
     return render_template('index.html')
 
 @app.route("/staffs", methods=['GET', 'POST'])
