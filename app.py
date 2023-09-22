@@ -55,8 +55,12 @@ def enroll():
 def getSubjectWithCampus():
     campus_id = request.args.get('campus_id') 
     
-    statement = "SELECT Programme.prog_id, Programme.prog_name FROM Programme INNER JOIN CampusList ON Programme.prog_id = CampusList.prog_id WHERE CampusList.cam_id = %s 
-AND Programme.lvl_id = 4"
+   statement = (
+        "SELECT Programme.prog_id, Programme.prog_name "
+        "FROM Programme "
+        "INNER JOIN CampusList ON Programme.prog_id = CampusList.prog_id "
+        "WHERE CampusList.cam_id = %s AND Programme.lvl_id = 4"
+    )
 
     cursor = db_conn.cursor()
     cursor.execute(statement, (campus_id))
