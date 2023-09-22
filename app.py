@@ -55,7 +55,7 @@ def enroll():
 def getSubjectWithCampus():
     campus_id = request.args.get('campus_id') 
     
-   statement = (
+    statement = (
         "SELECT Programme.prog_id, Programme.prog_name "
         "FROM Programme "
         "INNER JOIN CampusList ON Programme.prog_id = CampusList.prog_id "
@@ -67,9 +67,9 @@ def getSubjectWithCampus():
     result = cursor.fetchall()
     cursor.close()
 
-    result = [{'prog_id': row[0], 'prog_name': row[1]} for row in data]
+    result = [{'prog_id': row[0], 'prog_name': row[1]} for row in result]
 
-   return jsonify(result)
+    return jsonify(result)
 
 
 #---------------------------------------------------
