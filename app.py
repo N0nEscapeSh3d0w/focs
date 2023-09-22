@@ -45,9 +45,9 @@ def staffs():
 def enroll():
     return render_template('enroll.html')
 
-@app.route("/enroll2", methods=['GET', 'POST'])
-def enroll2():
-    return render_template('enroll-2.html')
+
+
+#---------------------------------------------------
 
 
 @app.route('/courses/<int:id>')
