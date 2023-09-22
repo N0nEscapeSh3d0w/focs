@@ -29,8 +29,7 @@ output = {}
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    hostname = socket.gethostname()
-    ip_address = socket.gethostbyname(hostname)
+    ip_address = request.remote_addr
     session['address'] = ip_address
     return render_template('index.html')
 
