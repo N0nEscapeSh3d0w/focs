@@ -2,9 +2,54 @@
 <!---Coding By CodingLab | www.codinglabweb.com--->
 <html lang="en">
 
-{% include "Head.html" %}
+<head>
+   
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!--====== Title ======-->
+    <title>Edubin - LMS Education HTML Template</title>
+    
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="css/slick.css">
+
+    <!--====== Animate css ======-->
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <!--====== Nice Select css ======-->
+    <link rel="stylesheet" href="css/nice-select.css">
+    
+    <!--====== Nice Number css ======-->
+    <link rel="stylesheet" href="css/jquery.nice-number.min.css">
+
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!--====== Fontawesome css ======-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="css/default.css">
+    
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!--====== Responsive css ======-->
+    <link rel="stylesheet" href="">
+  
+  
+</head>
 <!---enrol form css-->
-<link rel="stylesheet" href="{{ url_for('static', filename='css/enroll.css') }}">
+<link rel="stylesheet" href="css/enroll.css">
 
 <body>
     <section class="container">
@@ -21,6 +66,7 @@
                             <option>O Level</option>
                         </select>
                     </div>
+                    <input type="text" name="resultYear" placeholder="Year" required />
                     <div class="select-box" name="typeOfResult">
                         <select>
                             <option hidden>Type Of Result</option>
@@ -30,95 +76,95 @@
                     </div>
                 </div>
             </div>
-            <div id="input-container>
-               <label>Subject & Grade</label>
-                <div class="input-box" id="input-box1">
+
+            <div id="input-container">
+                <label>Subject & Grade</label>
+                <div class="input-box" id="input-box-1">
                     <div class="column">
-                            <div class="select-box">
-                                <select id="subject1" name="subject" required>
-                                    <option value="" disabled selected>Select Subject</option>
-                                    <option value="Math">Math</option>
-                                    <option value="Science">Science</option>
-                                    <option value="History">History</option>
-                                    <option value="History1">History</option>
-                                    <option value="History2">History</option>
-                                    <option value="History3">History</option>
-                                    <option value="History4">History</option>
-                                    <option value="History5">History</option>
-                                    <!-- Add more subjects here -->
-                                </select>
-                            </div>
-                       
-                            <div class="select-box">
-                                <select id="grade1" name="grade" required>
-                                    <option value="" disabled selected>Select Grade</option>
-                                    <!-- Add your grade options here -->
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                </select>
-                            </div>
+                        <div class="select-box">
+                            <select id="subject1" name="subject" required>
+                                <option value="" disabled selected>Select Subject</option>
+                                <option value="Math">Math</option>
+                                <option value="Science">Science</option>
+                                <option value="History">History</option>
+                                <option value="History1">History</option>
+                                <option value="History2">History</option>
+                                <option value="History3">History</option>
+                                <option value="History4">History</option>
+                                <option value="History5">History</option>
+                                <!-- Add more subjects here -->
+                            </select>
+                        </div>
+                        
+                        <div class="select-box">
+                            <select id="grade1" name="grade" required>
+                                <option value="" disabled selected>Select Grade</option>
+                                <!-- Add your grade options here -->
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            
+
+
+
                 <div class="input-box" id="input-box-2">
                     <div class="column">
-                        <div class="subject-grade">
-                            <div class="select-box">
-                                <select id="subject2" name="subject" required>
-                                    <option value="" disabled selected>Select Subject</option>
-                                    <option value="Math">Math</option>
-                                    <option value="Science">Science</option>
-                                    <option value="History">History</option>
-                                    <option value="History1">History</option>
-                                    <option value="History2">History</option>
-                                    <option value="History3">History</option>
-                                    <option value="History4">History</option>
-                                    <option value="History5">History</option>
-                                    <!-- Add more subjects here -->
-                                </select>
-                            </div>
-                            <div class="select-box">
-                                <select id="grade2" name="grade" required>
-                                    <option value="" disabled selected>Select Grade</option>
-                                    <!-- Add your grade options here -->
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                </select>
-                            </div>
+                       
+                        <div class="select-box">
+                            <select id="subject2" name="subject" required>
+                                <option value="" disabled selected>Select Subject</option>
+                                <option value="Math">Math</option>
+                                <option value="Science">Science</option>
+                                <option value="History">History</option>
+                                <option value="History1">History</option>
+                                <option value="History2">History</option>
+                                <option value="History3">History</option>
+                                <option value="History4">History</option>
+                                <option value="History5">History</option>
+                                <!-- Add more subjects here -->
+                            </select>
+                        </div>
+                        <div class="select-box">
+                            <select id="grade2" name="grade" required>
+                                <option value="" disabled selected>Select Grade</option>
+                                <!-- Add your grade options here -->
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="input-box" id="input-box-3">
                     <div class="column">
-                        <div class="subject-grade">
-                            <div class="select-box">
-                                <select id="subject3" name="subject" required>
-                                    <option value="" disabled selected>Select Subject</option>
-                                    <option value="Math">Math</option>
-                                    <option value="Science">Science</option>
-                                    <option value="History">History</option>
-                                    <option value="History1">History</option>
-                                    <option value="History2">History</option>
-                                    <option value="History3">History</option>
-                                    <option value="History4">History</option>
-                                    <option value="History5">History</option>
-                                    <!-- Add more subjects here -->
-                                </select>
-                            </div>
-                            <div class="select-box">
-                                <select id="grade3" name="grade" required>
-                                    <option value="" disabled selected>Select Grade</option>
-                                    <!-- Add your grade options here -->
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                </select>
-                            </div>
+                        <div class="select-box">
+                            <select id="subject3" name="subject" required>
+                                <option value="" disabled selected>Select Subject</option>
+                                <option value="Math">Math</option>
+                                <option value="Science">Science</option>
+                                <option value="History">History</option>
+                                <option value="History1">History</option>
+                                <option value="History2">History</option>
+                                <option value="History3">History</option>
+                                <option value="History4">History</option>
+                                <option value="History5">History</option>
+                                <!-- Add more subjects here -->
+                            </select>
+                        </div>
+                        <div class="select-box">
+                            <select id="grade3" name="grade" required>
+                                <option value="" disabled selected>Select Grade</option>
+                                <!-- Add your grade options here -->
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                            </select>
                         </div>
                     </div>
-                 </div>
+                </div>
             </div>
             <div class="column">
                 <button type="button" id="remove-subject-button" class="remove-subject-button" disabled>
@@ -188,29 +234,27 @@
                     inputBox.id = `input-box-${index}`;
                     inputBox.innerHTML = `
                         <div class="column">
-                            <div class="subject-grade">
-                                <div class="select-box">
-                                    <select id="subject${index}" name="subject" required>
-                                        <option value="" disabled selected>Select Subject</option>
-                                        <option value="Math">Math</option>
-                                        <option value="Science">Science</option>
-                                        <option value="History">History</option>
-                                        <option value="History1">History</option>
-                                        <option value="History2">History</option>
-                                        <option value="History3">History</option>
-                                        <option value="History4">History</option>
-                                        <option value="History5">History</option>
-                                    </select>
-                                </div>
-                                <div class="select-box">
-                                    <select id="grade${index}" name="grade" required>
-                                        <option value="" disabled selected>Select Grade</option>
-                                        <!-- Add your grade options here -->
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
-                                    </select>
-                                </div>
+                            <div class="select-box">
+                                <select id="subject${index}" name="subject" required>
+                                    <option value="" disabled selected>Select Subject</option>
+                                    <option value="Math">Math</option>
+                                    <option value="Science">Science</option>
+                                    <option value="History">History</option>
+                                    <option value="History1">History</option>
+                                    <option value="History2">History</option>
+                                    <option value="History3">History</option>
+                                    <option value="History4">History</option>
+                                    <option value="History5">History</option>
+                                </select>
+                            </div>
+                            <div class="select-box">
+                                <select id="grade${index}" name="grade" required>
+                                    <option value="" disabled selected>Select Grade</option>
+                                    <!-- Add your grade options here -->
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
                             </div>
                         </div>
                     `;
