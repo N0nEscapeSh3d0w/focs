@@ -37,127 +37,32 @@
                         </div>
                     </div>
                 </div>
-                <div class="input-box">
-                    <label>Subject & Grade</label>
-                    <div class="column">
-
-                        <div class="select-box rn-select-subject" name="subject" required>
-                            <select>
-                                  <option value="" disabled selected>Select Subject</option>
-                                   <option value="Math">Math</option>
-                                   <option value="Science">Science</option>
-                                   <option value="History">History</option>
-                            </select>
-                        </div>
-                         
-                        <div class="select-box" name="grade">
-                            <select>
-                                <option hidden>Grade</option>
-                                <option value="A">A+</option>
-                                <option value="A">A</option>
-                                <option value="A">A-</option>
-                                <option value="A">B+</option>
-                                <option value="A">B</option>
-                                <option value="A">C+</option>
-                                <option value="B">C</option>
-                                <option value="C">D</option>
-                                <option value="D">E</option>
-                                <option value="E">G</option>
-                                <option value="F">X</option>
-                            </select>
-                        </div>
-                         <button  type="button" class="remove-subject-button">X</button>
+             <div id="input-container">
+              <div class="input-box">
+                <label>Other Subject & Grade (3 Credit is required)</label>
+                <div class="column-wrapper">
+                  <div class="column">
+                    <select class="rn-select-subject" name="subject" required>
+                      <option value="" disabled selected>Select Subject</option>
+                      <option value="Math">Math</option>
+                      <option value="Science">Science</option>
+                      <option value="History">History</option>
+                      <!-- Add more subjects here -->
+                    </select>
+                  </div>
+                  <div class="column">
+                    <div class="select-box">
+                      <select name="grade">
+                        <option hidden>Grade</option>
+                        <!-- Add your grade options here -->
+                      </select>
                     </div>
-
-                      <div class="column">
-
-                        <div class="select-box" name="subject" required>
-                            <select>
-                                  <option value="" disabled selected>Select Subject</option>
-                                   <option value="Math">Math</option>
-                                   <option value="Science">Science</option>
-                                   <option value="History">History</option>
-                            </select>
-                        </div>
-                         
-                        <div class="select-box" name="grade">
-                            <select>
-                                <option hidden>Grade</option>
-                                <option value="A">A+</option>
-                                <option value="A">A</option>
-                                <option value="A">A-</option>
-                                <option value="A">B+</option>
-                                <option value="A">B</option>
-                                <option value="A">C+</option>
-                                <option value="B">C</option>
-                                <option value="C">D</option>
-                                <option value="D">E</option>
-                                <option value="E">G</option>
-                                <option value="F">X</option>
-                            </select>
-                        </div>
-                         <button type="button" class="remove-subject-button">X</button>
-                    </div>
-
-                           <div class="column">
-
-                        <div class="select-box" name="subject" required>
-                            <select>
-                                  <option value="" disabled selected>Select Subject</option>
-                                   <option value="Math">Math</option>
-                                   <option value="Science">Science</option>
-                                   <option value="History">History</option>
-                            </select>
-                        </div>
-                         
-                        <div class="select-box" name="grade">
-                            <select>
-                                <option hidden>Grade</option>
-                                <option value="A">A+</option>
-                                <option value="A">A</option>
-                                <option value="A">A-</option>
-                                <option value="A">B+</option>
-                                <option value="A">B</option>
-                                <option value="A">C+</option>
-                                <option value="B">C</option>
-                                <option value="C">D</option>
-                                <option value="D">E</option>
-                                <option value="E">G</option>
-                                <option value="F">X</option>
-                            </select>
-                        </div>
-                         <button type="button" class="remove-subject-button">X</button>
-                    </div>
-
-                           <div class="column">
-
-                        <div class="select-box" name="subject" required>
-                            <select>
-                                  <option value="" disabled selected>Select Subject</option>
-                                   <option value="Math">Math</option>
-                                   <option value="Science">Science</option>
-                                   <option value="History">History</option>
-                            </select>
-                        </div>
-                         
-                        <div class="select-box" name="grade">
-                            <select>
-                                <option hidden>Grade</option>
-                                <option value="A">A+</option>
-                                <option value="A">A</option>
-                                <option value="A">A-</option>
-                                <option value="A">B+</option>
-                                <option value="A">B</option>
-                                <option value="A">C+</option>
-                                <option value="B">C</option>
-                                <option value="C">D</option>
-                                <option value="D">E</option>
-                                <option value="E">G</option>
-                                <option value="F">X</option>
-                            </select>
-                        </div>
-                         <button type="button" class="remove-subject-button">X</button>
-                    </div>
+                    <button type="button" class="remove-subject-button">Remove Subject</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" id="add-subject-button">Add Another Subject</button>
 
                 <div class="file-box input-box column">
                       <label>Result Certificate</label>
