@@ -181,7 +181,9 @@
                                     aria-labelledby="outline-tab">
                                     <div class="outline">
                                         <div class="outline-description pt-25">
-                                            <h4><i class="fa fa-book gold-orange"></i>Programme Outline:</h4>
+                                              <div class="title">
+                                                <h4><i class="fa fa-book gold-orange"></i>Programme Outline:</h4>
+                                              </div>
                                             
                                                 {% for row in outline %}
                                                     <ul style="margin: 10px; list-style-type: circle;">
@@ -196,6 +198,8 @@
                                     <div class="career-cont">
                                         <div class="title pt-25" >
                                             <h4>Career Prospects:</h4>
+                                          </div>
+                                            
 
                                              {% for row in career %}
                                                 <ul style="margin: 10px; list-style-type: circle;">
@@ -204,7 +208,7 @@
                                             {% endfor %}
                                             
                                            
-                                        </div>
+                                      
 
   
                                     </div> 
@@ -214,7 +218,8 @@
                                     <div class="fees-cont">
                                         <div class="title pt-25">
                                             <h4>Fees & Financial Aid:</h4>
-                                            <br>
+                                          </div>
+                                           
                                              {% if programme[3] != None and programme[4] != None %}
                                                 <p>Estimated Total Fees : RM {{programme[3]}} (Malaysian Student), RM {{programme[4]}} (International Student)</p>
                                             {% elif programme[3] != None and programme[4] == None %}
@@ -224,7 +229,7 @@
                                             {% endif %}
                                             
                                            
-                                        </div>
+                                      
                                     </div> 
                                 </div>
                             </div> <!-- tab content -->
