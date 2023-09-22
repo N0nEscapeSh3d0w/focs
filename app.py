@@ -64,10 +64,10 @@ def enroll():
     count_st = "SELECT COUNT(*) FROM Grade"
     st_cursor = db_conn.cursor()
     st_cursor.execute(count_st)
-    st = grad_cursor.fetchone()
+    st = st_cursor.fetchone()
     st_cursor.close()
 
-    return render_template('enroll.html', campus=result, subject=subj, grade = grad, totalSubj = st[0])
+    return render_template('enroll.html', campus=result, subject=subj, grade = grad, totalSubj = st)
 
 @app.route("/getSubjectWithCampus", methods=['GET'])
 def getSubjectWithCampus():
