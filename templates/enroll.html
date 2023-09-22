@@ -118,8 +118,8 @@
                           <div class="select-box">
                               <select name="qualification" required>
                                   <option hidden>Qualification</option>
-                                  <option  value="1">SPM</option>
-                                  <option  value="2">O Level</option>
+                                  <option  value="SPM">SPM</option>
+                                  <option  value="O Level">O Level</option>
                               </select>
                           </div>
                           <input type="text" name="resultYear" placeholder="Year" required />
@@ -142,7 +142,7 @@
                                       <option value="" disabled selected>Select Subject</option>
          
                                         {% for row in subject %}
-                                                  <option value="{{row[1]}}">{{row[1]}}</option>
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
                                         {% endfor %}
                                       <!-- Add more subjects here -->
                                   </select>
@@ -153,7 +153,7 @@
                                       <option value="" disabled selected>Select Grade</option>
                                       <!-- Add your grade options here -->
                                           {% for row in grade %}
-                                                  <option value="{{row[1]}}">{{row[1]}}</option>
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
                                         {% endfor %}
                                   </select>
                               </div>
@@ -169,7 +169,7 @@
                                   <select id="subject2" name="subject" required>
                                       <option value="" disabled selected>Select Subject</option>
                                        {% for row in subject %}
-                                                  <option value="{{row[1]}}">{{row[1]}}</option>
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
                                         {% endfor %}
                                       <!-- Add more subjects here -->
                                   </select>
@@ -179,7 +179,7 @@
                                       <option value="" disabled selected>Select Grade</option>
                                       <!-- Add your grade options here -->
                                        {% for row in grade %}
-                                                  <option value="{{row[1]}}">{{row[1]}}</option>
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
                                         {% endfor %}
                                   </select>
                               </div>
@@ -191,7 +191,7 @@
                                   <select id="subject3" name="subject" required>
                                       <option value="" disabled selected>Select Subject</option>
                                         {% for row in subject %}
-                                                  <option value="{{row[1]}}">{{row[1]}}</option>
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
                                         {% endfor %}
                                       <!-- Add more subjects here -->
                                   </select>
@@ -201,7 +201,7 @@
                                       <option value="" disabled selected>Select Grade</option>
                                       <!-- Add your grade options here -->
                                        {% for row in grade %}
-                                                  <option value="{{row[1]}}">{{row[1]}}</option>
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
                                         {% endfor %}
                                   </select>
                               </div>
@@ -322,7 +322,7 @@
                             <select id="subject${index}" name="subject" required>
                                 <option value="" disabled selected>Select Subject</option>
                                  {% for row in subject %}
-                                    <option value="{{row[1]}}">{{row[1]}}</option>
+                                    <option value="{{row[0]}}">{{row[1]}}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -331,7 +331,7 @@
                                 <option value="" disabled selected>Select Grade</option>
                                 <!-- Add your grade options here -->
                                 {% for row in grade %}
-                                    <option value="{{row[1]}}">{{row[1]}}</option>
+                                    <option value="{{row[0]}}">{{row[1]}}</option>
                                 {% endfor %}
                             </select>
                         </div>
