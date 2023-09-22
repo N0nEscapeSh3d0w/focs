@@ -221,8 +221,7 @@
                       <input type="file" id="resultCert" name="resultCert">
                   </div>
                   <div class="column">
-                      <button>Check Qualification</button>
-                      <button>Enroll Now</button>
+                      <button onclick="checkQualification()">Check Qualification and Enroll</button>
                   </div>
           </section>
     </form>
@@ -377,6 +376,39 @@
 
 
     });
+</script>
+<script>
+      // Check duplication
+      function checkForDuplicates() {
+          const selectedSubjects = new Set(); // Create a set to store selected subjects
+          let hasDuplicates = false;
+      
+          // Iterate through the subject dropdowns and check for duplicates
+          for (let i = 1; i <= subjectCount; i++) {
+              const subjectDropdown = document.getElementById(`subject${i}`);
+              const selectedSubject = subjectDropdown.value;
+      
+              // Check if the selected subject is already in the set
+              if (selectedSubjects.has(selectedSubject)) {
+                  hasDuplicates = true;
+                  break; // Break out of the loop if a duplicate is found
+              } else {
+                  selectedSubjects.add(selectedSubject); // Add the selected subject to the set
+              }
+          }
+      
+          return hasDuplicates; // Return true if duplicates are found, otherwise false
+      }
+
+      function checkQualification() {
+        if (checkForDuplicates()) {
+            alert("Duplicate subjects are not allowed.");
+        } else {
+            // No duplicates found, submit the form
+            document.querySelector(".form").submit();
+        }
+    }
+      
 </script>
 
 
