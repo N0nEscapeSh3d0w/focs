@@ -261,151 +261,153 @@
 
 
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const inputContainer = document.getElementById("input-container");
-            const addButton = document.querySelector(".add-subject-button");
-            const removeButton = document.querySelector(".remove-subject-button");
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const inputContainer = document.getElementById("input-container");
+        const addButton = document.querySelector(".add-subject-button");
+        const removeButton = document.querySelector(".remove-subject-button");
 
-            // Initialize subject count
-            let subjectCount = 3;
-            let maxSubject = {{ totalSubj[0] | tojson | safe }};
+        // Initialize subject count
+        let subjectCount = 3;
+        let maxSubject = {{ totalSubj[0] | tojson | safe }};
 
-            // Disable the "Remove One Subject" button by default
-            removeButton.disabled = true;
+        // Disable the "Remove One Subject" button by default
+        removeButton.disabled = true;
 
-            // Function to check if all subject and grade fields are selected
-            function checkFields() {
-                let allFieldsSelected = true;
-                for (let i = 1; i <= subjectCount; i++) {
-                    const subjectDropdown = document.getElementById(`subject${i}`);
-                    const gradeDropdown = document.getElementById(`grade${i}`);
-                    if (subjectDropdown.value === "" || gradeDropdown.value === "") {
-                        allFieldsSelected = false;
-                        break;
-                    }
+        // Function to check if all subject and grade fields are selected
+        function checkFields() {
+            let allFieldsSelected = true;
+            for (let i = 1; i <= subjectCount; i++) {
+                const subjectDropdown = document.getElementById(`subject${i}`);
+                const gradeDropdown = document.getElementById(`grade${i}`);
+                if (subjectDropdown.value === "" || gradeDropdown.value === "") {
+                    allFieldsSelected = false;
+                    break;
                 }
-                return allFieldsSelected;
+            }
+            return allFieldsSelected;
+        }
+
+        // Function to enable/disable buttons based on field selection
+        function updateButtonState() {
+            if (subjectCount >= 3 && checkFields()) {
+                addButton.disabled = false;
+            } else {
+                addButton.disabled = true;
             }
 
-              function updateSubjectOptions() {
-                  // Get selected subjects
-                  const selectedSubjects = new Set();
-                  for (let i = 1; i <= subjectCount; i++) {
-                      const subjectDropdown = document.getElementById(`subject${i}`);
-                      const selectedSubject = subjectDropdown.value;
-                      if (selectedSubject !== "") {
-                          selectedSubjects.add(selectedSubject);
-                      }
-                  }
-      
-                  // Update subject options in all dropdowns
-                  for (let i = 1; i <= maxSubject; i++) {
-                      const subjectDropdown = document.getElementById(`subject${i}`);
-                      subjectDropdown.innerHTML = '<option value="" disabled selected>Select Subject</option>';
-                      {% for row in subject %}
-                          if (!selectedSubjects.has('{{row[0]}}')) {
-                              subjectDropdown.innerHTML += `<option value="{{row[0]}}">{{row[1]}}</option>`;
-                          }
-                      {% endfor %}
-                  }
-              }
+            if (subjectCount >= maxSubject) {
+                addButton.disabled = true;
+            }
 
-            // Function to enable/disable buttons based on field selection
-            function updateButtonState() {
-                if (subjectCount >= 3 && checkFields()) {
-                    addButton.disabled = false;
-                } else {
-                    addButton.disabled = true;
+            if (subjectCount > 3) {
+                removeButton.disabled = false;
+            } else {
+                removeButton.disabled = true;
+            }
+        }
+
+        function updateSubjectOptions() {
+            // Get selected subjects
+            const selectedSubjects = new Set();
+            for (let i = 1; i <= subjectCount; i++) {
+                const subjectDropdown = document.getElementById(`subject${i}`);
+                const selectedSubject = subjectDropdown.value;
+                if (selectedSubject !== "") {
+                    selectedSubjects.add(selectedSubject);
                 }
+            }
 
-                  if(subjectCount >= maxSubject){
-                        addButton.disabled = true;
-                  }
+            // Update subject options in all dropdowns
+            for (let i = 1; i <= maxSubject; i++) {
+                const subjectDropdown = document.getElementById(`subject${i}`);
+                subjectDropdown.innerHTML = '<option value="" disabled selected>Select Subject</option>';
+                {% for row in subject %}
+                    if (!selectedSubjects.has('{{row[0]}}')) {
+                        subjectDropdown.innerHTML += `<option value="{{row[0]}}">{{row[1]}}</option>`;
+                    }
+                {% endfor %}
+            }
+        }
+
+        addButton.addEventListener("click", function () {
+            if (subjectCount < maxSubject) {
+                const index = subjectCount + 1;
+                const inputBox = document.createElement("div");
+                inputBox.className = "input-box";
+                inputBox.id = `input-box-${index}`;
+                inputBox.innerHTML = `
+                    <div class="column">
+                        <div class="select-box">
+                            <select id="subject${index}" name="subject" required>
+                                <option value="" disabled selected>Select Subject</option>
+                            </select>
+                        </div>
+                        <div class="select-box">
+                            <select id="grade${index}" name="grade" required>
+                                <option value="" disabled selected>Select Grade</option>
+                                <!-- Add your grade options here -->
+                                {% for row in grade %}
+                                    <option value="{{row[0]}}">{{row[1]}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                `;
+                inputContainer.appendChild(inputBox);
+                subjectCount++;
 
                 if (subjectCount > 3) {
                     removeButton.disabled = false;
-                } else {
-                    removeButton.disabled = true;
                 }
-            }
 
-            addButton.addEventListener("click", function () {
-                if (subjectCount < maxSubject) {
-                    const index = subjectCount + 1;
-                    const inputBox = document.createElement("div");
-                    inputBox.className = "input-box";
-                    inputBox.id = `input-box-${index}`;
-                    inputBox.innerHTML = `
-                        <div class="column">
-                            <div class="select-box">
-                                <select id="subject${index}" name="subject" required>
-                                    <option value="" disabled selected>Select Subject</option>
-                                    {% for row in subject %}
-                                            <option value="{{row[0]}}">{{row[1]}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <div class="select-box">
-                                <select id="grade${index}" name="grade" required>
-                                    <option value="" disabled selected>Select Grade</option>
-                                    <!-- Add your grade options here -->
-                                    {% for row in grade %}
-                                                  <option value="{{row[0]}}">{{row[1]}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </div>
-                    `;
-                    inputContainer.appendChild(inputBox);
-                    subjectCount++;
-
-                    if (subjectCount > 3) {
-                        removeButton.disabled = false;
-                    }
-
-                    if (subjectCount >= maxSubject-1) {
-                        addButton.disabled = true;
-                    }
+                if (subjectCount >= maxSubject - 1) {
+                    addButton.disabled = true;
                 }
+
                 updateButtonState();
-            });
 
-            inputContainer.addEventListener("change", function () {
-                updateButtonState();
-            });
-
-            function remove() {
-                if (subjectCount > 3) {
-                    const index = subjectCount;
-                    const inputBoxToRemove = document.getElementById(`input-box-${index}`);
-                    if (inputBoxToRemove) {
-                        inputContainer.removeChild(inputBoxToRemove);
-                        subjectCount--;
-                        if (subjectCount <= 3) {
-                            removeButton.disabled = true;
-                        }
-                        if (subjectCount < maxSubject) {
-                            addButton.disabled = false;
-                        }
-                    }
-                    updateButtonState();
-                }
+                // Update subject options in all dropdowns
+                updateSubjectOptions();
             }
-
-            removeButton.addEventListener("click", remove);
-
-            // Call updateSubjectOptions when any subject dropdown is clicked
-              inputContainer.addEventListener("click", function (event) {
-                  if (event.target.tagName === "SELECT" && event.target.getAttribute("name") === "subject") {
-                      updateSubjectOptions();
-                  }
-              });
-      
-              // Call updateSubjectOptions once on page load
-              updateSubjectOptions();
         });
-    </script>
+
+        inputContainer.addEventListener("change", function () {
+            updateButtonState();
+        });
+
+        function remove() {
+            if (subjectCount > 3) {
+                const index = subjectCount;
+                const inputBoxToRemove = document.getElementById(`input-box-${index}`);
+                if (inputBoxToRemove) {
+                    inputContainer.removeChild(inputBoxToRemove);
+                    subjectCount--;
+                    if (subjectCount <= 3) {
+                        removeButton.disabled = true;
+                    }
+                    if (subjectCount < maxSubject) {
+                        addButton.disabled = false;
+                    }
+                }
+                updateButtonState();
+            }
+        }
+
+        removeButton.addEventListener("click", remove);
+
+        // Call updateSubjectOptions when any subject dropdown is clicked
+        inputContainer.addEventListener("click", function (event) {
+            if (event.target.tagName === "SELECT" && event.target.getAttribute("name") === "subject") {
+                updateSubjectOptions();
+            }
+        });
+
+        // Call updateSubjectOptions once on page load
+        updateSubjectOptions();
+    });
+</script>
+
 </body>
 
 </html>
