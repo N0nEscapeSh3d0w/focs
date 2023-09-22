@@ -92,6 +92,27 @@ def getSubjectWithCampus():
 
 #---------------------------------------------------
 
+@app.route('/displayStaff', methods=['GET'])
+def displayStaff():
+   
+   #Get All Internship
+    staff_statement = """SELECT s.staff_id, s.staff_name, s.position,s.img FROM Staffs s INNER JOIN Department d WHERE s.depart_id = d.part_id"""
+    cursor = db_conn.cursor()
+    cursor.execute(staff_statement)
+    result = cursor.fetchall()
+    cursor.close()
+
+     #Get Industry involve
+    indus_statement = "SELECT depart_name FROM Department"
+    cursor = db_conn.cursor()
+    cursor.execute(indus_statement)
+    depart = cursor.fetchall()
+    cursor.close()
+
+
+
+    return render_template('staff.html', staff = result, department = depart)
+
 
 @app.route('/courses/<int:id>')
 def courses(id):
