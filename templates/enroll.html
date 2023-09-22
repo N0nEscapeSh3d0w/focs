@@ -259,6 +259,7 @@
           });
       </script>
 
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const inputContainer = document.getElementById("input-container");
@@ -268,7 +269,6 @@
         // Initialize subject count
         let subjectCount = 3;
         let maxSubject = {{ totalSubj[0] | tojson | safe }};
-        let selectedSubjects = new Set(); // To store selected subjects
 
         // Disable the "Remove One Subject" button by default
         removeButton.disabled = true;
@@ -306,23 +306,6 @@
             }
         }
 
-        // Function to check for duplicate subjects
-        function checkForDuplicates() {
-            selectedSubjects.clear(); // Clear the set
-            let hasDuplicates = false;
-
-            for (let i = 1; i <= subjectCount; i++) {
-                const subjectDropdown = document.getElementById(`subject${i}`);
-                if (selectedSubjects.has(subjectDropdown.value)) {
-                    hasDuplicates = true;
-                    break;
-                } else {
-                    selectedSubjects.add(subjectDropdown.value);
-                }
-            }
-
-            return hasDuplicates;
-        }
 
         addButton.addEventListener("click", function () {
             if (subjectCount < maxSubject) {
@@ -335,9 +318,8 @@
                         <div class="select-box">
                             <select id="subject${index}" name="subject" required>
                                 <option value="" disabled selected>Select Subject</option>
-                                <!-- Add your subject options here -->
-                                {% for row in subject %}
-                                <option value="{{row[1]}}">{{row[1]}}</option>
+                                 {% for row in subject %}
+                                    <option value="{{row[1]}}">{{row[1]}}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -346,26 +328,21 @@
                                 <option value="" disabled selected>Select Grade</option>
                                 <!-- Add your grade options here -->
                                 {% for row in grade %}
-                                <option value="{{row[1]}}">{{row[1]}}</option>
+                                    <option value="{{row[1]}}">{{row[1]}}</option>
                                 {% endfor %}
                             </select>
                         </div>
                     </div>
                 `;
+                inputContainer.appendChild(inputBox);
+                subjectCount++;
 
-                if (!checkForDuplicates()) {
-                    inputContainer.appendChild(inputBox);
-                    subjectCount++;
+                if (subjectCount > 3) {
+                    removeButton.disabled = false;
+                }
 
-                    if (subjectCount > 3) {
-                        removeButton.disabled = false;
-                    }
-
-                    if (subjectCount >= maxSubject - 1) {
-                        addButton.disabled = true;
-                    }
-                } else {
-                    alert("Duplicate subjects are not allowed.");
+                if (subjectCount >= maxSubject - 1) {
+                    addButton.disabled = true;
                 }
 
                 updateButtonState();
@@ -397,9 +374,10 @@
 
         removeButton.addEventListener("click", remove);
 
+
+
     });
 </script>
-
 
 
 </body>
