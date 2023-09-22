@@ -304,7 +304,6 @@
             }
 
             addButton.addEventListener("click", function () {
-                  console.log(subjectCount)
                 if (subjectCount < maxSubject) {
                     const index = subjectCount + 1;
                     const inputBox = document.createElement("div");
@@ -338,7 +337,7 @@
                         removeButton.disabled = false;
                     }
 
-                    if (subjectCount === (maxSubject-2)) {
+                    if (subjectCount >= maxSubject-1) {
                         addButton.disabled = true;
                     }
                 }
