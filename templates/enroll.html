@@ -270,7 +270,6 @@
             // Initialize subject count
             let subjectCount = 3;
             let maxSubject = {{ totalSubj | tojson | safe }};
-            console.log(maxSubject)
 
             // Disable the "Remove One Subject" button by default
             removeButton.disabled = true;
@@ -338,7 +337,7 @@
                         removeButton.disabled = false;
                     }
 
-                    if (subjectCount <= maxSubject) {
+                    if (subjectCount >= (maxSubject-2)) {
                         addButton.disabled = true;
                     }
                 }
@@ -359,7 +358,7 @@
                         if (subjectCount <= 3) {
                             removeButton.disabled = true;
                         }
-                        if (subjectCount < maxSubject) {
+                        if (subjectCount >= (maxSubject-2)) {
                             addButton.disabled = false;
                         }
                     }
