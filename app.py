@@ -4,6 +4,9 @@ from pymysql import connections
 import os
 import boto3
 import socket
+import pdfplumber
+from flask import send_file
+from werkzeug.utils import secure_filename
 
 customhost = "focsdb.cpkr5ofaey5p.us-east-1.rds.amazonaws.com"
 customuser = "admin"
@@ -89,7 +92,81 @@ def getSubjectWithCampus():
 
     return jsonify(result)
 
+@app.route("/enrollDiploma", methods=['GET'])
+@csrf.exempt
+def enrollDiploma():
+        
+    # Retrieve data from the form
+    full_name = request.form.get('name')
+    mykad_no = request.form.get('ic')
+    gender = request.form.get('gender')
+    address = request.form.get('address')
+    state = request.form.get('state')
+    city = request.form.get('city')
+    post_code = request.form.get('postCode')
+    phone_no = request.form.get('phoneNo')
+    email = request.form.get('email')
+    campus = request.form.get('campus')
+    program = request.form.get('program')
+    front_ic_file = request.files.get('frontIc')
+    back_ic_file = request.files.get('backIc')
+    qualification = request.form.get('qualification')
+    result_year = request.form.get('resultYear')
+    type_of_result = request.form.get('typeOfResult')
+    acknowledge = request.form.get('acknowledge')
 
+    # Retrieve subject and grade data (loop through the fields)
+    subjects = []
+    grades = []
+
+    count_st = "SELECT COUNT(*) FROM Grade"
+    st_cursor = db_conn.cursor()
+    st_cursor.execute(count_st)
+    st = st_cursor.fetchone()
+    st_cursor.close()
+    
+    for i in range(1, st[0]):  # Assuming there are 10 subject and grade pairs
+        subject = request.form.get(f'subject{i}')
+        grade = request.form.get(f'grade{i}')
+        if subject and grade:
+            subjects.append(subject)
+            grades.append(grade)
+
+    #--Start to check the qualification (Compalsory Subject)-----------------------------------------------------
+    cc_statement = "SELECT sub_id, grade FROM Compulsory_subject WHERE prog_id = %s"
+    cc_cursor = db_conn.cursor()
+    cc_cursor.execute(cc_statement, program)
+    compulsory_subjects = st_cursor.fetchall()
+    cc_cursor.close()
+
+    # Create a dictionary to store the required grades for each compulsory subject.
+    compulsory_subjects_dict = {sub_id: grade for sub_id, grade in compulsory_subjects}
+
+    # Initialize a list to store subjects and grades that don't meet the requirements.
+    mismatched_subjects = []
+
+    # Iterate through the user-submitted subjects and grades and check if they match the requirements.
+    for subject, user_grade in zip(subjects, grades):
+        # Check if the subject is compulsory for the selected program.
+        if subject in compulsory_subjects_dict:
+            required_grade = compulsory_subjects_dict[subject]  # Get the required grade
+            if user_grade > required_grade:
+                mismatched_subjects.append((subject, user_grade, required_grade))
+
+    #--Start to check the qualification (Credit Check)-----------------------------------------------------
+    credit_statement = "SELECT number_credit FROM Credit WHERE prog_id = %s"
+    credit_cursor = db_conn.cursor()
+    credit_cursor.execute(credit_statement, program)
+    number_of_credit = credit_cursor.fetchall()
+    credit_cursor.close()
+    
+    for user_grade in grades:
+    if user_grade == 7:
+        credit_number += 1
+
+    
+
+    
 #---------------------------------------------------
 
 @app.route('/displayStaff', methods=['GET'])
