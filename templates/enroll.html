@@ -139,14 +139,10 @@
                               <div class="select-box">
                                   <select id="subject1" name="subject" required>
                                       <option value="" disabled selected>Select Subject</option>
-                                      <option value="Math">Math</option>
-                                      <option value="Science">Science</option>
-                                      <option value="History">History</option>
-                                      <option value="History1">History</option>
-                                      <option value="History2">History</option>
-                                      <option value="History3">History</option>
-                                      <option value="History4">History</option>
-                                      <option value="History5">History</option>
+         
+                                        {% for row in subject %}
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                        {% endfor %}
                                       <!-- Add more subjects here -->
                                   </select>
                               </div>
@@ -155,9 +151,9 @@
                                   <select id="grade1" name="grade" required>
                                       <option value="" disabled selected>Select Grade</option>
                                       <!-- Add your grade options here -->
-                                      <option value="A">A</option>
-                                      <option value="B">B</option>
-                                      <option value="C">C</option>
+                                          {% for row in grade %}
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                        {% endfor %}
                                   </select>
                               </div>
                           </div>
@@ -171,14 +167,9 @@
                               <div class="select-box">
                                   <select id="subject2" name="subject" required>
                                       <option value="" disabled selected>Select Subject</option>
-                                      <option value="Math">Math</option>
-                                      <option value="Science">Science</option>
-                                      <option value="History">History</option>
-                                      <option value="History1">History</option>
-                                      <option value="History2">History</option>
-                                      <option value="History3">History</option>
-                                      <option value="History4">History</option>
-                                      <option value="History5">History</option>
+                                       {% for row in subject %}
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                        {% endfor %}
                                       <!-- Add more subjects here -->
                                   </select>
                               </div>
@@ -186,9 +177,9 @@
                                   <select id="grade2" name="grade" required>
                                       <option value="" disabled selected>Select Grade</option>
                                       <!-- Add your grade options here -->
-                                      <option value="A">A</option>
-                                      <option value="B">B</option>
-                                      <option value="C">C</option>
+                                       {% for row in grade %}
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                        {% endfor %}
                                   </select>
                               </div>
                           </div>
@@ -198,14 +189,9 @@
                               <div class="select-box">
                                   <select id="subject3" name="subject" required>
                                       <option value="" disabled selected>Select Subject</option>
-                                      <option value="Math">Math</option>
-                                      <option value="Science">Science</option>
-                                      <option value="History">History</option>
-                                      <option value="History1">History</option>
-                                      <option value="History2">History</option>
-                                      <option value="History3">History</option>
-                                      <option value="History4">History</option>
-                                      <option value="History5">History</option>
+                                        {% for row in subject %}
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                        {% endfor %}
                                       <!-- Add more subjects here -->
                                   </select>
                               </div>
@@ -213,9 +199,9 @@
                                   <select id="grade3" name="grade" required>
                                       <option value="" disabled selected>Select Grade</option>
                                       <!-- Add your grade options here -->
-                                      <option value="A">A</option>
-                                      <option value="B">B</option>
-                                      <option value="C">C</option>
+                                       {% for row in grade %}
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                        {% endfor %}
                                   </select>
                               </div>
                           </div>
@@ -282,6 +268,7 @@
 
             // Initialize subject count
             let subjectCount = 3;
+            let maxSubject = {{totalSubj}}
 
             // Disable the "Remove One Subject" button by default
             removeButton.disabled = true;
@@ -316,7 +303,7 @@
             }
 
             addButton.addEventListener("click", function () {
-                if (subjectCount < 8) {
+                if (subjectCount < maxSubject) {
                     const index = subjectCount + 1;
                     const inputBox = document.createElement("div");
                     inputBox.className = "input-box";
@@ -326,23 +313,18 @@
                             <div class="select-box">
                                 <select id="subject${index}" name="subject" required>
                                     <option value="" disabled selected>Select Subject</option>
-                                    <option value="Math">Math</option>
-                                    <option value="Science">Science</option>
-                                    <option value="History">History</option>
-                                    <option value="History1">History</option>
-                                    <option value="History2">History</option>
-                                    <option value="History3">History</option>
-                                    <option value="History4">History</option>
-                                    <option value="History5">History</option>
+                                    {% for row in subject %}
+                                            <option value="{{row[0]}}">{{row[1]}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                             <div class="select-box">
                                 <select id="grade${index}" name="grade" required>
                                     <option value="" disabled selected>Select Grade</option>
                                     <!-- Add your grade options here -->
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
+                                    {% for row in grade %}
+                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -354,7 +336,7 @@
                         removeButton.disabled = false;
                     }
 
-                    if (subjectCount >= 8) {
+                    if (subjectCount == (maxSubject-2)) {
                         addButton.disabled = true;
                     }
                 }
