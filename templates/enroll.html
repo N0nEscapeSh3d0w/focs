@@ -9,172 +9,463 @@
     
 
 <body>
-
     
-    <section class="container">
-        <header>Enroll Form</header>
-        <form action="enroll-2.html" class="form">
-            <div class="input-box">
-                <label>Full Name</label>
-                <input type="text" name="name" placeholder="Enter full name" required />
-            </div>
-
-            <div class="input-box">
-                <label>MyKad No.</label>
-                <input type="text" name="ic" placeholder="Enter My Kad NO." required />
-            </div>
-
-            <div class="gender-box">
-                <h3>Gender</h3>
-                <div class="gender-option">
-                    <div class="gender">
-                        <input type="radio" id="check-male" name="gender" checked />
-                        <label for="check-male">Male</label>
-                    </div>
-                    <div class="gender">
-                        <input type="radio" id="check-female" name="gender" />
-                        <label for="check-female">Female</label>
+    <form action="/" class="form" method="POST">
+    
+        <section class="container" id="section1">
+            <header>Enroll Form</header>
+            <form action="enroll-2.html" class="form">
+                <div class="input-box">
+                    <label>Full Name</label>
+                    <input type="text" name="name" placeholder="Enter full name" required />
+                </div>
+    
+                <div class="input-box">
+                    <label>MyKad No.</label>
+                    <input type="text" name="ic" placeholder="Enter My Kad NO." required />
+                </div>
+    
+                <div class="gender-box">
+                    <h3>Gender</h3>
+                    <div class="gender-option">
+                        <div class="gender">
+                            <input type="radio" id="check-male" name="gender" checked />
+                            <label for="check-male">Male</label>
+                        </div>
+                        <div class="gender">
+                            <input type="radio" id="check-female" name="gender" />
+                            <label for="check-female">Female</label>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="input-box address">
-                <label>Address</label>
-                <input type="text" name="address" placeholder="Enter street address" required />
-
+    
+                <div class="input-box address">
+                    <label>Address</label>
+                    <input type="text" name="address" placeholder="Enter street address" required />
+    
+                    <div class="column">
+                        <div class="select-box" name="state">
+                            <select>
+                                <option hidden>State</option>
+                                <option>Kuala Lumpur</option>
+                                <option>Selangor</option>
+                                <option>Melaka</option>
+                                <option>Johor</option>
+                                <option>Pahang</option>
+                                <option>Penang</option>
+                                <option>Perak</option>
+                                <option>Kedah</option>
+                                <option>Terengganu</option>
+                                <option>Kelantan</option>
+                                <option>Sabah</option>
+                                <option>Sarawak</option>
+                                <option>Negeri Sembilan</option>
+                                <option>Perlis</option>
+                            </select>
+                        </div>
+                        <input type="text" name="City" placeholder="Enter your city" required />
+                    </div>
+                    <div class="column">
+                        <input type="number" name="postCode" placeholder="Enter postal code" required />
+                    </div>
+                </div>
+    
                 <div class="column">
-                    <div class="select-box" name="state">
-                        <select>
-                            <option hidden>State</option>
-                            <option>Kuala Lumpur</option>
-                            <option>Selangor</option>
-                            <option>Melaka</option>
-                            <option>Johor</option>
-                            <option>Pahang</option>
-                            <option>Penang</option>
-                            <option>Perak</option>
-                            <option>Kedah</option>
-                            <option>Terengganu</option>
-                            <option>Kelantan</option>
-                            <option>Sabah</option>
-                            <option>Sarawak</option>
-                            <option>Negeri Sembilan</option>
-                            <option>Perlis</option>
-                        </select>
+                    <div class="input-box">
+                        <label>Phone Number</label>
+                        <input type="text" name="phoneNo" placeholder="Enter phone number" required />
                     </div>
-                    <input type="text" name="City" placeholder="Enter your city" required />
+                    <div class="input-box">
+                        <label>Email Address</label>
+                        <input type="text" name="email" placeholder="Enter email address" required />
+                    </div>
                 </div>
-                <div class="column">
-                    <input type="number" name="postCode" placeholder="Enter postal code" required />
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="input-box">
-                    <label>Phone Number</label>
-                    <input type="text" name="phoneNo" placeholder="Enter phone number" required />
-                </div>
-                <div class="input-box">
-                    <label>Email Address</label>
-                    <input type="text" name="email" placeholder="Enter email address" required />
-                </div>
-            </div>
-
-            <div class="input-box programme">
-                <label style="font-weight: bold;">Programme</label>
-                <div class="input-box">
-                    <label>1st Choice</label>
-                    <div class="column">
-                        <div class="select-box" name="campus">
-                            <select>
-                                <option hidden>Campus</option>
-                                <option>Kuala Lumpur Main Campus</option>
-                                <option>Penang Branch</option>
-                                <option>Johor Branch</option>
-                                <option>Pahang Branch</option>
-                                <option>Perak Branch</option>
-                                <option>Sabah Branch</option>
-                            </select>
+    
+                <div class="input-box programme">
+                    <label style="font-weight: bold;">Programme</label>
+                    <div class="input-box">
+                        <label>1st Choice</label>
+                        <div class="column">
+                            <div class="select-box" name="campus">
+                                <select>
+                                    <option hidden>Campus</option>
+                                    <option>Kuala Lumpur Main Campus</option>
+                                    <option>Penang Branch</option>
+                                    <option>Johor Branch</option>
+                                    <option>Pahang Branch</option>
+                                    <option>Perak Branch</option>
+                                    <option>Sabah Branch</option>
+                                </select>
+                            </div>
+                            <div class="select-box" name="level">
+                                <select>
+                                    <option hidden>Level</option>
+                                    <option>Foundation</option>
+                                    <option>Diploma</option>
+                                    <option>Bachelor</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="select-box" name="level">
-                            <select>
-                                <option hidden>Level</option>
-                                <option>Foundation</option>
-                                <option>Diploma</option>
-                                <option>Bachelor</option>
-                            </select>
+                        <input type="text" name="firstChoice" placeholder="What is your first choice" required />
+    
+                        <label style="margin-top: 10px;">2nd Choice</label>
+                        <div class="column">
+                            <div class="select-box" name="campus">
+                                <select>
+                                    <option hidden>Campus</option>
+                                    <option>Kuala Lumpur Main Campus</option>
+                                    <option>Penang Branch</option>
+                                    <option>Johor Branch</option>
+                                    <option>Pahang Branch</option>
+                                    <option>Perak Branch</option>
+                                    <option>Sabah Branch</option>
+                                </select>
+                            </div>
+                            <div class="select-box" name="level">
+                                <select>
+                                    <option hidden>Level</option>
+                                    <option>Foundation</option>
+                                    <option>Diploma</option>
+                                    <option>Bachelor</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="text" name="secondChoice" placeholder="What is your second choice" required />
+    
+                        <label style="margin-top: 10px;">3rd Choice</label>
+                        <div class="column">
+                            <div class="select-box" name="campus">
+                                <select>
+                                    <option hidden>Campus</option>
+                                    <option>Kuala Lumpur Main Campus</option>
+                                    <option>Penang Branch</option>
+                                    <option>Johor Branch</option>
+                                    <option>Pahang Branch</option>
+                                    <option>Perak Branch</option>
+                                    <option>Sabah Branch</option>
+                                </select>
+                            </div>
+                            <div class="select-box" name="level">
+                                <select>
+                                    <option hidden>Level</option>
+                                    <option>Foundation</option>
+                                    <option>Diploma</option>
+                                    <option>Bachelor</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="text" name="thirdChoice" placeholder="What is your third choice" required />
+                    </div>
+    
+    
+                </div>
+    
+                <div class="file-box">
+                    <span class="details">MyKad (Front)</span>
+                    <input type="file" id="frontIc" name="frontIc">
+                </div>
+    
+                <div class="file-box">
+                    <span class="details">MyKad (Back)</span>
+                    <input type="file" id="backIc" name="backIc">
+                </div>
+    
+                <button onclick="nextPage()">Next</button>
+        </section>
+    
+         <section class="container" id="section2" style="display: none;">
+            <header>Academic Qualification</header>
+            <h5 style="margin-top: 15px;text-decoration: underline;">SPM / O LEVEL/ EQUIVALENT</h3>
+            
+                    <div class="input-box">
+                        <label>Qualification</label>
+                        <div class="column">
+                            <div class="select-box" name="qualification">
+                                <select>
+                                    <option hidden>Qualification</option>
+                                    <option>SPM</option>
+                                    <option>O Level</option>
+    
+                                </select>
+                            </div>
+                            <input type="text" name="resultYear" placeholder="Year" required />
+    
+                            <div class="select-box" name="typeOfResult">
+                                <select>
+                                    <option hidden>Type Of Result</option>
+                                    <option>Actual Result</option>
+                                    <option>Trial/Provisional results</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <input type="text" name="firstChoice" placeholder="What is your first choice" required />
-
-                    <label style="margin-top: 10px;">2nd Choice</label>
-                    <div class="column">
-                        <div class="select-box" name="campus">
-                            <select>
-                                <option hidden>Campus</option>
-                                <option>Kuala Lumpur Main Campus</option>
-                                <option>Penang Branch</option>
-                                <option>Johor Branch</option>
-                                <option>Pahang Branch</option>
-                                <option>Perak Branch</option>
-                                <option>Sabah Branch</option>
-                            </select>
+                    <div class="input-box">
+                        <label>Subject & Grade</label>
+                        <div class="column">
+    
+                            <input type="text" name="subject" placeholder="Enter Subject" required />
+                            <div class="select-box" name="grade">
+                                <select>
+                                    <option hidden>Grade</option>
+                                    <option value="A">A+</option>
+                                    <option value="A">A</option>
+                                    <option value="A">A-</option>
+                                    <option value="A">B+</option>
+                                    <option value="A">B</option>
+                                    <option value="A">C+</option>
+                                    <option value="B">C</option>
+                                    <option value="C">D</option>
+                                    <option value="D">E</option>
+                                    <option value="E">G</option>
+                                    <option value="F">X</option>
+                                </select>
+                            </div>
+    
                         </div>
-                        <div class="select-box" name="level">
-                            <select>
-                                <option hidden>Level</option>
-                                <option>Foundation</option>
-                                <option>Diploma</option>
-                                <option>Bachelor</option>
-                            </select>
+                        <div class="column">
+    
+                            <input type="text" name="subject" placeholder="Enter Subject" required />
+                            <div class="select-box" name="grade">
+                                <select>
+                                    <option hidden>Grade</option>
+                                    <option value="A">A+</option>
+                                    <option value="A">A</option>
+                                    <option value="A">A-</option>
+                                    <option value="A">B+</option>
+                                    <option value="A">B</option>
+                                    <option value="A">C+</option>
+                                    <option value="B">C</option>
+                                    <option value="C">D</option>
+                                    <option value="D">E</option>
+                                    <option value="E">G</option>
+                                    <option value="F">X</option>
+                                </select>
+                            </div>
+    
+                        </div>
+                        <div class="column">
+    
+                            <input type="text" name="subject" placeholder="Enter Subject" required />
+                            <div class="select-box" name="grade">
+                                <select>
+                                    <option hidden>Grade</option>
+                                    <option value="A">A+</option>
+                                    <option value="A">A</option>
+                                    <option value="A">A-</option>
+                                    <option value="A">B+</option>
+                                    <option value="A">B</option>
+                                    <option value="A">C+</option>
+                                    <option value="B">C</option>
+                                    <option value="C">D</option>
+                                    <option value="D">E</option>
+                                    <option value="E">G</option>
+                                    <option value="F">X</option>
+                                </select>
+                            </div>
+    
+                        </div>
+                        <div class="column">
+    
+                            <input type="text" name="subject" placeholder="Enter Subject" required />
+                            <div class="select-box" name="grade">
+                                <select>
+                                    <option hidden>Grade</option>
+                                    <option value="A">A+</option>
+                                    <option value="A">A</option>
+                                    <option value="A">A-</option>
+                                    <option value="A">B+</option>
+                                    <option value="A">B</option>
+                                    <option value="A">C+</option>
+                                    <option value="B">C</option>
+                                    <option value="C">D</option>
+                                    <option value="D">E</option>
+                                    <option value="E">G</option>
+                                    <option value="F">X</option>
+                                </select>
+                            </div>
+    
+                        </div>
+                        <div class="column">
+    
+                            <input type="text" name="subject" placeholder="Enter Subject" required />
+                            <div class="select-box" name="grade">
+                                <select>
+                                    <option hidden>Grade</option>
+                                    <option value="A">A+</option>
+                                    <option value="A">A</option>
+                                    <option value="A">A-</option>
+                                    <option value="A">B+</option>
+                                    <option value="A">B</option>
+                                    <option value="A">C+</option>
+                                    <option value="B">C</option>
+                                    <option value="C">D</option>
+                                    <option value="D">E</option>
+                                    <option value="E">G</option>
+                                    <option value="F">X</option>
+                                </select>
+                            </div>
+    
+                        </div>
+                        <div class="column">
+    
+                            <input type="text" name="subject" placeholder="Enter Subject" required />
+                            <div class="select-box" name="grade">
+                                <select>
+                                    <option hidden>Grade</option>
+                                    <option value="A">A+</option>
+                                    <option value="A">A</option>
+                                    <option value="A">A-</option>
+                                    <option value="A">B+</option>
+                                    <option value="A">B</option>
+                                    <option value="A">C+</option>
+                                    <option value="B">C</option>
+                                    <option value="C">D</option>
+                                    <option value="D">E</option>
+                                    <option value="E">G</option>
+                                    <option value="F">X</option>
+                                </select>
+                            </div>
+    
+                        </div>
+                        <div class="column">
+    
+                            <input type="text" name="subject" placeholder="Enter Subject" required />
+                            <div class="select-box" name="grade">
+                                <select>
+                                    <option hidden>Grade</option>
+                                    <option value="A">A+</option>
+                                    <option value="A">A</option>
+                                    <option value="A">A-</option>
+                                    <option value="A">B+</option>
+                                    <option value="A">B</option>
+                                    <option value="A">C+</option>
+                                    <option value="B">C</option>
+                                    <option value="C">D</option>
+                                    <option value="D">E</option>
+                                    <option value="E">G</option>
+                                    <option value="F">X</option>
+                                </select>
+                            </div>
+    
+                        </div>
+                        <div class="column">
+    
+                            <input type="text" name="subject" placeholder="Enter Subject" required />
+                            <div class="select-box" name="grade">
+                                <select>
+                                    <option hidden>Grade</option>
+                                    <option value="A">A+</option>
+                                    <option value="A">A</option>
+                                    <option value="A">A-</option>
+                                    <option value="A">B+</option>
+                                    <option value="A">B</option>
+                                    <option value="A">C+</option>
+                                    <option value="B">C</option>
+                                    <option value="C">D</option>
+                                    <option value="D">E</option>
+                                    <option value="E">G</option>
+                                    <option value="F">X</option>
+                                </select>
+                            </div>
+    
+                        </div>
+                        <div class="column">
+    
+                            <input type="text" name="subject" placeholder="Enter Subject" required />
+                            <div class="select-box" name="grade">
+                                <select>
+                                    <option hidden>Grade</option>
+                                    <option value="A">A+</option>
+                                    <option value="A">A</option>
+                                    <option value="A">A-</option>
+                                    <option value="A">B+</option>
+                                    <option value="A">B</option>
+                                    <option value="A">C+</option>
+                                    <option value="B">C</option>
+                                    <option value="C">D</option>
+                                    <option value="D">E</option>
+                                    <option value="E">G</option>
+                                    <option value="F">X</option>
+                                </select>
+                            </div>
+    
+                        </div>
+                        <div class="column">
+    
+                            <input type="text" name="subject" placeholder="Enter Subject" required />
+                            <div class="select-box" name="grade">
+                                <select>
+                                    <option hidden>Grade</option>
+                                    <option value="A">A+</option>
+                                    <option value="A">A</option>
+                                    <option value="A">A-</option>
+                                    <option value="A">B+</option>
+                                    <option value="A">B</option>
+                                    <option value="A">C+</option>
+                                    <option value="B">C</option>
+                                    <option value="C">D</option>
+                                    <option value="D">E</option>
+                                    <option value="E">G</option>
+                                    <option value="F">X</option>
+                                </select>
+                            </div>
+    
+                        </div>
+                        <div class="column">
+    
+                            <input type="text" name="subject" placeholder="Enter Subject" required />
+                            <div class="select-box" name="grade">
+                                <select>
+                                    <option hidden>Grade</option>
+                                    <option value="A">A+</option>
+                                    <option value="A">A</option>
+                                    <option value="A">A-</option>
+                                    <option value="A">B+</option>
+                                    <option value="A">B</option>
+                                    <option value="A">C+</option>
+                                    <option value="B">C</option>
+                                    <option value="C">D</option>
+                                    <option value="D">E</option>
+                                    <option value="E">G</option>
+                                    <option value="F">X</option>
+                                </select>
+                            </div>
+    
                         </div>
                     </div>
-                    <input type="text" name="secondChoice" placeholder="What is your second choice" required />
-
-                    <label style="margin-top: 10px;">3rd Choice</label>
-                    <div class="column">
-                        <div class="select-box" name="campus">
-                            <select>
-                                <option hidden>Campus</option>
-                                <option>Kuala Lumpur Main Campus</option>
-                                <option>Penang Branch</option>
-                                <option>Johor Branch</option>
-                                <option>Pahang Branch</option>
-                                <option>Perak Branch</option>
-                                <option>Sabah Branch</option>
-                            </select>
-                        </div>
-                        <div class="select-box" name="level">
-                            <select>
-                                <option hidden>Level</option>
-                                <option>Foundation</option>
-                                <option>Diploma</option>
-                                <option>Bachelor</option>
-                            </select>
-                        </div>
+    
+    
+                    <div class="file-box">
+                        <span class="details">SPM Result</span>
+                        <input type="file" id="spmResult" name="spmResult">
                     </div>
-                    <input type="text" name="thirdChoice" placeholder="What is your third choice" required />
-                </div>
+    
+                    <div class="file-box">
+                        <span class="details">Portfolio</span>
+                        <input type="file" id="portfolio" name="portfolio">
+                    </div>
+    
+                    <button onclick="previousPage()">Back</button>
+                    <button type="submit">Submit</button>
+          
+        </section>
 
-
-            </div>
-
-            <div class="file-box">
-                <span class="details">MyKad (Front)</span>
-                <input type="file" id="frontIc" name="frontIc">
-            </div>
-
-            <div class="file-box">
-                <span class="details">MyKad (Back)</span>
-                <input type="file" id="backIc" name="backIc">
-            </div>
-
-            <button>Next</button>
-        </form>
-    </section>
-
+  </form>
         
     <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 </body>
 
 </html>
+<script>
+
+        function nextPage() {
+	        document.getElementById('section2').style.display = 'block';
+	        document.getElementById('section1').style.display = 'none';
+	    }
+	
+	    function previousPage() {
+	        document.getElementById('section2').style.display = 'none';
+	        document.getElementById('section1').style.display = 'block';
+	    }
+    
+</script>
