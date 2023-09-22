@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, session
+from flask import Flask, render_template, request, url_for, session, jsonify
 from flask_session import Session
 from pymysql import connections
 import os
@@ -43,8 +43,29 @@ def staffs():
 #------Enroll--------------
 @app.route("/enroll", methods=['GET', 'POST'])
 def enroll():
-    return render_template('enroll.html')
+    doc_statement = "SELECT id, name FROM Campus"
+    doc_cursor = db_conn.cursor()
+    doc_cursor.execute(doc_statement)
+    result = doc_cursor.fetchall()
+    doc_cursor.close()
 
+    return render_template('enroll.html', campus=result)
+
+@app.route("/getSubjectWithCampus", methods=['GET'])
+def getSubjectWithCampus():
+    campus_id = request.args.get('campus_id') 
+    
+    statement = "SELECT Programme.prog_id, Programme.prog_name FROM Programme INNER JOIN CampusList ON Programme.prog_id = CampusList.prog_id WHERE CampusList.cam_id = %s 
+AND Programme.lvl_id = 4"
+
+    cursor = db_conn.cursor()
+    cursor.execute(statement, (campus_id))
+    result = cursor.fetchall()
+    cursor.close()
+
+    result = [{'prog_id': row[0], 'prog_name': row[1]} for row in data]
+
+   return jsonify(result)
 
 
 #---------------------------------------------------
