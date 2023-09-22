@@ -337,7 +337,7 @@
                         removeButton.disabled = false;
                     }
 
-                    if (subjectCount >= maxSubject) {
+                    if (subjectCount == (maxSubject-2)) {
                         addButton.disabled = true;
                     }
                 }
@@ -358,7 +358,7 @@
                         if (subjectCount <= 3) {
                             removeButton.disabled = true;
                         }
-                        if (subjectCount >= maxSubject) {
+                        if (subjectCount < maxSubject) {
                             addButton.disabled = false;
                         }
                     }
