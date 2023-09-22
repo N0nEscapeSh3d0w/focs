@@ -318,6 +318,9 @@
                         <div class="select-box">
                             <select id="subject${index}" name="subject" required>
                                 <option value="" disabled selected>Select Subject</option>
+                                 {% for row in subject %}
+                                    <option value="{{row[0]}}">{{row[1]}}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="select-box">
