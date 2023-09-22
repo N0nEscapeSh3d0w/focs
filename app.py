@@ -34,6 +34,16 @@ def home():
 def staffs():
     return render_template('staff.html')
 
+#------Enroll--------------
+@app.route("/enroll", methods=['GET', 'POST'])
+def enroll():
+    return render_template('enroll.html')
+
+@app.route("/enroll2", methods=['GET', 'POST'])
+def enroll2():
+    return render_template('enroll_2.html')
+
+
 @app.route('/courses/<int:id>')
 def courses(id):
 
