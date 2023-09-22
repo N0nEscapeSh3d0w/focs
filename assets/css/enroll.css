@@ -165,3 +165,16 @@ button.success-btn {
   transition: all 0.2s ease;
   background: #66de5f;
 }
+
+button.success-btn:hover {
+  height: 55px;
+  width: 100%;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #32853d;
+}
+
