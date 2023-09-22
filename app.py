@@ -41,7 +41,7 @@ def enroll():
 
 @app.route("/enroll2", methods=['GET', 'POST'])
 def enroll2():
-    return render_template('enroll_2.html')
+    return render_template('enroll-2.html')
 
 
 @app.route('/courses/<int:id>')
