@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--====== Title ======-->
+    <title>Tunku Abdul Rahman University Technology and Management</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="https://www.tarc.edu.my/images/tarIco.ico" type="image/png">
+
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slick.css') }}">
+
+    <!--====== Animate css ======-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+
+    <!--====== Nice Select css ======-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}">
+
+    <!--====== Nice Number css ======-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.nice-number.min.css') }}">
+
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <!--====== Fontawesome css ======-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!--====== Responsive css ======-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+</head>
+
+<body>
+
+    <!--====== HEADER PART START ======-->
+
+    <header id="header-part">
+        <div class="header-logo-support pt-30 pb-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="https://www.tarc.edu.my/images/tarumt-logo1.png" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="support-button float-right d-none d-md-block">
+                            <div class="support float-left">
+                                <div class="focs">
+                                    <img src="{{ url_for('static', filename='images/focs logo.png') }}" alt="icon"
+                                        style="width:370px;height:100px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- header logo support -->
+
+        <div class="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+                        <nav class="navbar navbar-expand-lg">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                        <a href="/">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#about-part">about us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="courses.html">Facilities</a>
+                                        <!-- <ul class="sub-menu">
+                                            <li><a href="courses.html">Courses</a></li>
+                                            <li><a href="courses-singel.html">Course Singel</a></li>
+                                        </ul> -->
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="active">Programme</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{ url_for('courses', id=4) }}">Diploma</a></li>
+                                            <li><a href="{{ url_for('courses', id=3) }}">Bachelor</a></li>
+                                            <li><a href="{{ url_for('courses', id=2) }}">Master Degree</a></li>
+                                            <li><a href="{{ url_for('courses', id=1) }}">Doctor of Philosophy</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="teachers.html">Staff</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="events.html">Research</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="events.html">Events</a></li>
+                                            <li><a href="events-singel.html">Event Singel</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="teachers.html">external advisors</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="teachers.html">teachers</a></li>
+                                            <li><a href="teachers-singel.html">teacher Singel</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav> <!-- nav -->
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+                        <div class="right-icon text-right">
+                            <ul>
+                                <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div> <!-- right icon -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div>
+
+    </header>
+
+    <!--====== HEADER PART ENDS ======-->
+
+    <!--====== SEARCH BOX PART START ======-->
+
+    <div class="search-box">
+        <div class="serach-form">
+            <div class="closebtn">
+                <span></span>
+                <span></span>
+            </div>
+            <form action="#">
+                <input type="text" placeholder="Search by keyword">
+                <button><i class="fa fa-search"></i></button>
+            </form>
+        </div> <!-- serach form -->
+    </div>
+
+    <!--====== SEARCH BOX PART ENDS ======-->
+
+    <!--====== PAGE BANNER PART START ======-->
+
+    <section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8"
+        style="background-image: url(images/page-banner-2.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-banner-cont">
+                        <h2>Programmes Comparison</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Programme</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Compare</li>
+                            </ol>
+                        </nav>
+                    </div> <!-- page banner cont -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== PAGE BANNER PART ENDS ======-->
+    <!--====== EVENTS PART START ======-->
+    <section id="event-singel" class="pt-120 pb-120 gray-bg">
+        <div class="container">
+            <div class="events-area">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="events-left">
+                            <h3>Compare</h3>
+                            <div class="container">
+                                <div class="col-md-9 mx-auto">
+                                    <form>
+                                        <table class="table">
+                                            <!--Programme Level-->
+                                            <tr class="bg-light">
+                                                {% if session['compare_level']: %}
+
+                                                    <th><label for="programme_level">Select a programme level:</label></th>
+                                                    <th width="300px">
+                                                        <select name="programme_level" id="programme_level" disabled>
+                                                            {% if session['compare_level'] == '4': %}
+                                                            <option value="4">-- Diploma --</option>
+                                                            {% elif session['compare_level'] == '3': %}
+                                                            <option value="3">-- Bachelor --</option>
+                                                            {% elif session['compare_level'] == '2': %}
+                                                            <option value="2">-- Master --</option>
+                                                            {% elif session['compare_level'] == '1': %}
+                                                            <option value="1">-- Doctor --</option>
+                                                            {% else %}
+                                                            <option value="">-- Select Programme Level --</option>
+                                                            {% for level in programme_levels %}
+                                                            <option value="{{ level[0] }}">{{ level[1] }}</option>
+                                                            {% endfor %}
+                                                            {% endif %}
+                                                        </select>
+                                                    </th>
+                                                {% else %}
+                                                    <th><label for="programme_level">Select a programme level:</label></th>
+                                                    <th width="300px">
+                                                        <select name="programme_level" id="programme_level">
+                                                            <option value="">-- Select Programme Level --</option>
+                                                            {% for level in programme_levels %}
+                                                            <option value="{{ level[0] }}">{{ level[1] }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </th>
+
+                                                {% endif %}
+                                                    <th></th>
+                                            </tr>
+                                            <!--Programme-->
+                                            {% if session['compare_level']: %} 
+                                                <tr> 
+                                                    <th>
+                                                        <labelfor="programme,programme1">Select a programme:</label></th>
+                                                    <td>
+                                                        <select name="programme" id="programme">
+                                                            <option value="">-- Select Programme --</option>
+                                                            {% for program in programmes %}
+                                                            <option value="{{ program[0] }}">{{ program[2] }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <select name="programme1" id="programme1">
+                                                            <option value="">-- Select Programme --</option>
+                                                            {% for program1 in programmes1 %}
+                                                            <option value="{{ program1[0] }}">{{ program1[2] }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </td>
+                                            {% else %}
+                                                    <th>
+                                                        <labelfor="programme,programme1">Select a programme:</label></th>
+                                                    <td>
+                                                        <select name="programme" id="programme" disabled>
+                                                            {% for program_details in programme_details %}
+                                                            <option value="{{ program_details[1] }}">{{ program_details[2] }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <select name="programme1" id="programme1" disabled>
+                                                            {% for program_details1 in programme_details1 %}
+                                                            <option value="{{ program_details1[1] }}">{{ program_details1[2] }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            {% endif %}
+                                            <!--Programme Fees (Local)-->
+                                            {% if session['compare_prog'] and session['compare_prog1']: %}
+                                                <tr>
+                                                    <th>Programme Fees (Local)</th>
+                                                    {% for program_details in programme_details %}
+                                                    <td id="feesLocal">{{ program_details[3] }}</td>
+                                                    {% endfor %}
+                                                    {% for program_details1 in programme_details1 %}
+                                                    <td id="feesLocal1">{{ program_details1[3] }}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                <!--Programme Fees (International)-->
+                                                <tr>
+                                                    <th>Programme Fees (International)</th>
+                                                    {% for program_details in programme_details %}
+                                                    <td id="feesInt">{{ program_details[4] }}</td>
+                                                    {% endfor %}
+                                                    {% for program_details1 in programme_details1 %}
+                                                    <td id="feesInt1">{{ program_details1[4] }}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                <!--Programme Intake-->
+                                                <tr>
+                                                    <th>Programme Intake</th>
+                                                    {% for program_details in programme_details %}
+                                                    <td id="intake">{{ program_details[5] }}</td>
+                                                    {% endfor %}
+                                                    {% for program_details1 in programme_details1 %}
+                                                    <td id="intake1">{{ program_details1[5] }}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                <!--Programme Duration-->
+                                                <tr>
+                                                    <th>Programme Duration</th>
+                                                    {% for program_details in programme_details %}
+                                                    <td id="duration">{{ program_details[7] }}</td>
+                                                    {% endfor %}
+                                                    {% for program_details1 in programme_details1 %}
+                                                    <td id="duration1">{{ program_details1[7] }}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                            {% endif %}
+                                        </table>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <nav class="courses-pagination mt-50">
+                                                    <ul class="pagination justify-content-center">
+                                                        <ul class="nav" id="myTab" role="tablist">
+                                                            <input type="submit" value="Compare">
+                                                        </ul> <!-- nav -->
+                                                    </ul>
+                                                </nav> <!-- courses pagination -->
+                                            </div>
+                                        </div> <!-- row -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div> <!-- events left -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- events-area -->
+        </div> <!-- container -->
+    </section>
+
+
+    <!--====== EVENTS PART ENDS ======-->
+
+    <!--====== FOOTER PART START ======-->
+
+    <footer id="footer-part">
+        <div class="footer-top pt-40 pb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="footer-about mt-20">
+                            <p style="text-align: center;font-weight: bold;">TUNKU ABDUL RAHMAN UNIVERSITY OF MANAGEMENT
+                                AND TECHNOLOGY</p>
+                            <ul>
+                                <p style="text-align: center;">Registration No. DU058(W)
+                                    Wholly owned by the TARC Education Foundation</p>
+                                <p>(Co. Reg. No.: 201301003979 (1033820-M))</p>
+                            </ul>
+                            <ul class="mt-20">
+                                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div> <!-- footer about -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer-link mt-40">
+                            <div class="footer-title pb-25">
+                                <h6>Sitemap</h6>
+                            </div>
+                            <ul>
+                                <li><a href="index-2.html"><i class="fa fa-angle-right"></i>Home</a></li>
+                                <li><a href="courses.html"><i class="fa fa-angle-right"></i>Programme</a></li>
+                                <li><a href="blog.html"><i class="fa fa-angle-right"></i>Facilities</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Our Team</a></li>
+                                <li><a href="contact.html"><i class="fa fa-angle-right"></i>Contact</a></li>
+                            </ul>
+                        </div> <!-- footer link -->
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-address mt-40">
+                            <div class="footer-title pb-25">
+                                <h6>Contact Us</h6>
+                            </div>
+                            <ul>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-home"></i>
+                                    </div>
+                                    <div class="cont">
+                                        <p>Jalan Genting Kelang, Setapak,
+                                            53300 Kuala Lumpur</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="cont">
+                                        <p>+(6)03-4145 0123</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-envelope-o"></i>
+                                    </div>
+                                    <div class="cont">
+                                        <p>focs@tarc.edu.my</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div> <!-- footer address -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer top -->
+
+    </footer>
+    <script>
+        function getProgrammeLevel() {
+            var selectedProgrammeLevel = document.getElementById('programme_level').value;
+            localStorage.setItem('selectedProgrammeLevel', selectedProgrammeLevel);
+        }
+
+        function getProgramme() {
+            var selectedProgramme = document.getElementById('programme').value;
+            localStorage.setItem('selectedProgramme', selectedProgramme);
+        }
+
+        function getProgramme1() {
+            var selectedProgramme1 = document.getElementById('programme1').value;
+            localStorage.setItem('selectedProgramme1', selectedProgramme1);
+        }
+
+        // Initialize the dropdowns with stored values
+        window.onload = function () {
+            document.getElementById('programme_level').value = localStorage.getItem('selectedProgrammeLevel');
+            document.getElementById('programme').value = localStorage.getItem('selectedProgramme');
+            document.getElementById('programme1').value = localStorage.getItem('selectedProgramme1');
+        };
+    </script>
+
+    <!--====== FOOTER PART ENDS ======-->
+
+    <!--====== BACK TO TP PART START ======-->
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!--====== BACK TO TP PART ENDS ======-->
+
+    <!--====== jquery js ======-->
+    <script src="{{url_for('static', filename='js/vendor/modernizr-3.6.0.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/vendor/jquery-1.12.4.min.js')}}"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
+    <!--====== Slick js ======-->
+    <script src="{{url_for('static', filename='js/slick.min.js')}}"></script>
+
+    <!--====== Magnific Popup js ======-->
+    <script src="{{url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>
+
+    <!--====== Counter Up js ======-->
+    <script src="{{url_for('static', filename='js/waypoints.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.counterup.min.js')}}"></script>
+
+    <!--====== Nice Select js ======-->
+    <script src="{{url_for('static', filename='js/jquery.nice-select.min.js')}}"></script>
+
+    <!--====== Nice Number js ======-->
+    <script src="{{url_for('static', filename='js/jquery.nice-number.min.js')}}"></script>
+
+    <!--====== Count Down js ======-->
+    <script src="{{url_for('static', filename='js/jquery.countdown.min.js')}}"></script>
+
+    <!--====== Validator js ======-->
+    <script src="{{url_for('static', filename='js/validator.min.js')}}"></script>
+
+    <!--====== Ajax Contact js ======-->
+    <script src="{{url_for('static', filename='js/ajax-contact.js')}}"></script>
+
+    <!--====== Main js ======-->
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+    <!--====== Map js ======-->
+    <script
+        src="{{url_for('static', filename='https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ')}}"></script>
+    <script src="{{url_for('static', filename='js/map-script.js')}}"></script>
+
+</body>
+
+</html>
