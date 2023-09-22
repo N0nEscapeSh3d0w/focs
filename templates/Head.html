@@ -42,39 +42,7 @@
     <!--====== Responsive css ======-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
 
-     <!--====== remove button for enroll css ======-->
-       <style>
-            /* Style for the Remove Subject button */
-            .remove-subject-button {
-                 background-color: transparent;
-                border: none;
-                color: red;
-                font-size: 16px;
-                cursor: pointer;
-                padding: 0;
-                margin-left: 10px;
-                width: 20px; /* Set a fixed width */
-                height: 20px; /* Set a fixed height */
-                line-height: 1; /* Center the text vertically */
-                text-align: center; /* Center the text horizontally */
-                border-radius: 50%; /* Create a circular button */
-            }
-        
-            /* Hide the Remove Subject button in the first three input boxes */
-            .rn-input-box:nth-child(-n+3) .remove-subject-button {
-                display: none;
-            }
-        
-            /* Show the Remove Subject button in the additional input boxes */
-            .rn-input-box:nth-child(n+4) .remove-subject-button {
-                display: inline-block;
-            }
-        
-            /* Style for the select elements */
-            .rn-select-subject {
-                /* Add your custom styles for the select elements here */
-            }
-        </style>
+
 
 
 
