@@ -42,25 +42,25 @@
           
                           <div class="column">
                               <div class="select-box" name="state">
-                                  <select>
-                                      <option hidden>State</option>
-                                      <option>Kuala Lumpur</option>
-                                      <option>Selangor</option>
-                                      <option>Melaka</option>
-                                      <option>Johor</option>
-                                      <option>Pahang</option>
-                                      <option>Penang</option>
-                                      <option>Perak</option>
-                                      <option>Kedah</option>
-                                      <option>Terengganu</option>
-                                      <option>Kelantan</option>
-                                      <option>Sabah</option>
-                                      <option>Sarawak</option>
-                                      <option>Negeri Sembilan</option>
-                                      <option>Perlis</option>
+                                  <select name="state" required>
+                                      <option  hidden>State</option>
+                                      <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                      <option value="Selangor">Selangor</option>
+                                      <option value="Melaka">Melaka</option>
+                                      <option value="Johor">Johor</option>
+                                      <option value="Pahang">Pahang</option>
+                                      <option value="Penang">Penang</option>
+                                      <option value="Perak">Perak</option>
+                                      <option value="Kedah">Kedah</option>
+                                      <option value="Terengganu">Terengganu</option>
+                                      <option value="Kelantan">Kelantan</option>
+                                      <option value="Sabah">Sabah</option>
+                                      <option value="Sarawak">Sarawak</option>
+                                      <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                      <option value="Perlis">Perlis</option>
                                   </select>
                               </div>
-                              <input type="text" name="City" placeholder="Enter your city" required />
+                              <input type="text" name="city" placeholder="Enter your city" required />
                           </div>
                           <div class="column">
                               <input type="number" name="postCode" placeholder="Enter postal code" required />
@@ -99,12 +99,12 @@
           
                       <div class="file-box input-box column">
                             <label>MyKad (Front)</label>
-                          <input type="file" id="frontIc" name="frontIc">
+                          <input type="file" id="frontIc" name="frontIc" required>
                       </div>
           
                       <div class="file-box input-box column">
                           <label>MyKad (Back)</label>
-                          <input type="file" id="backIc" name="backIc">
+                          <input type="file" id="backIc" name="backIc" required>
                       </div>
               </section>
                             
@@ -118,8 +118,8 @@
                           <div class="select-box">
                               <select name="qualification" required>
                                   <option hidden>Qualification</option>
-                                  <option>SPM</option>
-                                  <option>O Level</option>
+                                  <option  value="1">SPM</option>
+                                  <option  value="2">O Level</option>
                               </select>
                           </div>
                           <input type="text" name="resultYear" placeholder="Year" required />
@@ -142,7 +142,7 @@
                                       <option value="" disabled selected>Select Subject</option>
          
                                         {% for row in subject %}
-                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                                  <option value="{{row[1]}}">{{row[1]}}</option>
                                         {% endfor %}
                                       <!-- Add more subjects here -->
                                   </select>
@@ -153,7 +153,7 @@
                                       <option value="" disabled selected>Select Grade</option>
                                       <!-- Add your grade options here -->
                                           {% for row in grade %}
-                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                                  <option value="{{row[1]}}">{{row[1]}}</option>
                                         {% endfor %}
                                   </select>
                               </div>
@@ -169,7 +169,7 @@
                                   <select id="subject2" name="subject" required>
                                       <option value="" disabled selected>Select Subject</option>
                                        {% for row in subject %}
-                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                                  <option value="{{row[1]}}">{{row[1]}}</option>
                                         {% endfor %}
                                       <!-- Add more subjects here -->
                                   </select>
@@ -179,7 +179,7 @@
                                       <option value="" disabled selected>Select Grade</option>
                                       <!-- Add your grade options here -->
                                        {% for row in grade %}
-                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                                  <option value="{{row[1]}}">{{row[1]}}</option>
                                         {% endfor %}
                                   </select>
                               </div>
@@ -191,7 +191,7 @@
                                   <select id="subject3" name="subject" required>
                                       <option value="" disabled selected>Select Subject</option>
                                         {% for row in subject %}
-                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                                  <option value="{{row[1]}}">{{row[1]}}</option>
                                         {% endfor %}
                                       <!-- Add more subjects here -->
                                   </select>
@@ -201,7 +201,7 @@
                                       <option value="" disabled selected>Select Grade</option>
                                       <!-- Add your grade options here -->
                                        {% for row in grade %}
-                                                  <option value="{{row[0]}}">{{row[1]}}</option>
+                                                  <option value="{{row[1]}}">{{row[1]}}</option>
                                         {% endfor %}
                                   </select>
                               </div>
@@ -319,7 +319,7 @@
                             <select id="subject${index}" name="subject" required>
                                 <option value="" disabled selected>Select Subject</option>
                                  {% for row in subject %}
-                                    <option value="{{row[0]}}">{{row[1]}}</option>
+                                    <option value="{{row[1]}}">{{row[1]}}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -328,7 +328,7 @@
                                 <option value="" disabled selected>Select Grade</option>
                                 <!-- Add your grade options here -->
                                 {% for row in grade %}
-                                    <option value="{{row[0]}}">{{row[1]}}</option>
+                                    <option value="{{row[1]}}">{{row[1]}}</option>
                                 {% endfor %}
                             </select>
                         </div>
