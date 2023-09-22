@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, url_for
+from flask_session import Session
 from pymysql import connections
 import os
 import boto3
+import socket
 
 customhost = "focsdb.cpkr5ofaey5p.us-east-1.rds.amazonaws.com"
 customuser = "admin"
@@ -9,7 +11,6 @@ custompass = "admin123"
 customdb = "focsDB"
 custombucket = "semfocs-bucket"
 customregion = "us-east-1"
-
 
 app = Flask(__name__, static_folder='assets')
 
@@ -25,6 +26,12 @@ db_conn = connections.Connection(
 
 )
 output = {}
+
+def getIP():
+    hostname = socket.gethostname()
+    ip_address = socket.gethostbyname(hostname)
+    session['address'] = ip_address
+    return f'IP address ({session["address"]}) stored in session.'
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
