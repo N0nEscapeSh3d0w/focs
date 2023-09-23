@@ -264,13 +264,15 @@
 
 
 <script>
+      let subjectCount = 3;
+      
     document.addEventListener("DOMContentLoaded", function () {
         const inputContainer = document.getElementById("input-container");
         const addButton = document.querySelector(".add-subject-button");
         const removeButton = document.querySelector(".remove-subject-button");
 
         // Initialize subject count
-        let subjectCount = 3;
+  
         let maxSubject = {{ totalSubj[0] | tojson | safe }};
 
         // Disable the "Remove One Subject" button by default
