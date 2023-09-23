@@ -1,7 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
 <html lang="en">
-  {{mismatched }}
-  {{user_credit }}
-  {{grade}}
-  {{subject}}
+
+{%include "Head.html"%}
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/enroll.css') }}">
+
+
+<body>
+
+    <section class="container">
+
+            {{mismatched }}
+      {{user_credit }}
+      {{grade}}
+      {{subject}}
+
+        <header>Enrollment Unsuccessful!</header>
+
+      {% if mismatched == None: %}
+         <p>Sorry, your enrollment could not be processed because you have not met the required number of credits for this program.</p>
+
+      {% else: %}
+        <p>Sorry, your enrollment could not be processed because you have not met the compulsory subject requirements for this program.</p>
+      
+    </section>
+
+         <p>Please review your subject grades and ensure you meet the required grades for the compulsory subjects before submitting your enrollment.</p>
+
+
+</body>
+
 </html>
