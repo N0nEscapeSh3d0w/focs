@@ -105,24 +105,6 @@ def getSubjectWithCampus():
 @csrf.exempt
 def enrollDiploma():
         
-    # Retrieve data from the form
-    full_name = request.form.get('name')
-    mykad_no = request.form.get('ic')
-    gender = request.form.get('gender')
-    address = request.form.get('address')
-    state = request.form.get('state')
-    city = request.form.get('city')
-    post_code = request.form.get('postCode')
-    phone_no = request.form.get('phoneNo')
-    email = request.form.get('email')
-    campus = request.form.get('campus')
-    program = request.form.get('program')
-    front_ic_file = request.files.get('frontIc')
-    back_ic_file = request.files.get('backIc')
-    qualification = request.form.get('qualification')
-    result_year = request.form.get('resultYear')
-    type_of_result = request.form.get('typeOfResult')
-    acknowledge = request.form.get('acknowledge')
 
     # Retrieve subject and grade data (loop through the fields)
     subjects = []
@@ -180,7 +162,7 @@ def enrollDiploma():
 
     #---Add data to db-----------------------------------------
     #Get last ID 
-    countstatement = "SELECT MAX(id) FROM Enroll_grade;"
+    countstatement = "SELECT MAX(id) FROM Diploma_enroll;"
     count_cursor = db_conn.cursor()
     count_cursor.execute(countstatement)
     result = count_cursor.fetchone()
@@ -189,15 +171,69 @@ def enrollDiploma():
         enroll_id = 1
     else:
         enroll_id = result + 1
-    
-    logo_in_s3 = "enroll_id-" + str(com_id) + "_png"
-    s3 = boto3.resource('s3')
-    s3.Bucket(custombucket).put_object(Key=logo_in_s3, Body=logo, ContentType=logo.content_type)
-    logo_url = f"https://{custombucket}.s3.amazonaws.com/{logo_in_s3}"  
-    
 
+    front_ic_file = request.files('frontIc')
+    back_ic_file = request.files('backIc')
+    resultCert_file = request.files('resultCert')
+
+    #---ic(front)--------------
+    s3 = boto3.resource('s3')
     
+    icf_in_s3 = "enroll_id-" + str(enroll_id) + "_png"
+    s3.Bucket(custombucket).put_object(Key=icf_in_s3, Body=front_ic_file, ContentType=front_ic_file.content_type)
+    icf_url = f"https://{custombucket}.s3.amazonaws.com/{icf_in_s3}"  
+
+    #---ic(back)--------------
+    icb_in_s3 = "enroll_id-" + str(enroll_id) + "_png"
+    s3.Bucket(custombucket).put_object(Key=icb_in_s3, Body=back_ic_file, ContentType=back_ic_file.content_type)
+    icf_url = f"https://{custombucket}.s3.amazonaws.com/{icb_in_s3}"  
+
+    #---cert--------------
+    cert_in_s3 = "enroll_id-" + str(enroll_id) + "_png"
+    s3.Bucket(custombucket).put_object(Key=cert_in_s3, Body=resultCert_file, ContentType=resultCert_file.content_type)
+    cert_url = f"https://{custombucket}.s3.amazonaws.com/{cert_in_s3}"  
+
+    # Retrieve data from the form
+    full_name = request.form.get('name')
+    mykad_no = request.form.get('ic')
+    gender = request.form.get('gender')
+    address = request.form.get('address')
+    state = request.form.get('state')
+    city = request.form.get('city')
+    post_code = request.form.get('postCode')
+    phone_no = request.form.get('phoneNo')
+    email = request.form.get('email')
+    campus = request.form.get('campus')
+    program = request.form.get('program')
+    qualification = request.form.get('qualification')
+    result_year = request.form.get('resultYear')
+    type_of_result = request.form.get('typeOfResult')
+    acknowledge = request.form.get('acknowledge')
+
+    enrollstatement = "INSERT INTO Diploma_enroll VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    enroll_cursor = db_conn.cursor()
+    enroll_cursor.execute(enrollstatement, (enroll_id, full_name, mykad_no, gender, address, state, city, post_code, email, program, icf_url, icb_url, qualification, result_year, type_of_result, cert_url ))
+    db_conn.commit()
+
+    insert_statement = "INSERT INTO Enroll_grade VALUES (%s, %s, %s, %s)"
+
+    for subject, user_grade in zip(subjects, grades):
+            #Get last ID 
+            countstatement = "SELECT MAX(id) FROM Enroll_grade;"
+            count_cursor = db_conn.cursor()
+            count_cursor.execute(countstatement)
+            result = count_cursor.fetchone()
         
+            if result is None:
+                em_id = 1
+            else:
+                em_id = result + 1
+                
+            insert_cursor = db_conn.cursor()
+            insert_cursor.execute(insert_statement, (em_id, enroll_id, subject, user_grade))
+            db_conn.commit()
+            insert_cursor.close()
+
     return render_template("enrollSuccess.html")
     
 
