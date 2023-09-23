@@ -207,7 +207,7 @@ def displayStaff():
 
 
 
-@app.route('/displayStaff/staffDetails/<int:id>')
+@app.route('/displayStaff/staffDetails/<string:staff_id>')
 def staffDetails(id):
 
     #Get Internship details
