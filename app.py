@@ -100,6 +100,7 @@ def getSubjectWithCampus():
 
     return jsonify(result)
 
+
 @app.route("/enrollDiploma", methods=['POST'])
 @csrf.exempt
 def enrollDiploma():
@@ -174,11 +175,30 @@ def enrollDiploma():
         if user_grade <= '7':
             credit_number += 1
 
-    if(credit_number < number_of_credit[0]):
+    if(credit_number < number_of_credit[0] OR mismatched_subjects):
         return render_template("enrollFail.html", mismatched = mismatched_subjects, user_credit = credit_number, grade=grades, subject=subjects)
-    else:
-        return render_template("enrollSuccess.html")
 
+    #---Add data to db-----------------------------------------
+    #Get last ID 
+    countstatement = "SELECT MAX(id) FROM Enroll_grade;"
+    count_cursor = db_conn.cursor()
+    count_cursor.execute(countstatement)
+    result = count_cursor.fetchone()
+
+     if result is None or result[0] is None:
+        enroll_id = 1
+     else:
+        enroll_id = result + 1
+    
+    logo_in_s3 = "enroll_id-" + str(com_id) + "_png"
+    s3 = boto3.resource('s3')
+    s3.Bucket(custombucket).put_object(Key=logo_in_s3, Body=logo, ContentType=logo.content_type)
+    logo_url = f"https://{custombucket}.s3.amazonaws.com/{logo_in_s3}"  
+    
+
+    
+        
+    return render_template("enrollSuccess.html")
     
 
     
