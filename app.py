@@ -188,7 +188,7 @@ def enrollDiploma():
 def displayStaff():
    
    #Get All Internship
-    staff_statement = """SELECT s.staff_id, s.staff_name, s.position,s.img FROM Staff s INNER JOIN Department d WHERE s.depart_id = d.part_id"""
+    staff_statement = """SELECT s.staff_id, s.staff_name, s.position,s.img FROM Staff s INNER JOIN Department d WHERE s.depart_id = d.depart_id"""
     cursor = db_conn.cursor()
     cursor.execute(staff_statement)
     result = cursor.fetchall()
