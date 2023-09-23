@@ -63,8 +63,8 @@
         <h2 style="text-align: center;">FACULTY OF COMPUTING AND INFORMATION TECHNOLOGY</h2>
         <div class="container">
             <div class="row">
+              {% for row in staff %}
                 <div class="col-lg-3 col-sm-6">
-                    {% for row in staff %}
                     <a href="{{ url_for('staffDetails', staff_id=row[0]) }}">
                         <div class="singel-teachers mt-30 text-center">
 
