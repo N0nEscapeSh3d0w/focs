@@ -189,9 +189,9 @@ def enrollDiploma():
         enroll_id = int(result[0]) + 1
         
 
-    front_ic_file = request.files('frontIc')
-    back_ic_file = request.files('backIc')
-    resultCert_file = request.files('resultCert')
+    front_ic_file = request.files['frontIc']
+    back_ic_file = request.files['backIc']
+    resultCert_file = request.files['resultCert']
 
     #---ic(front)--------------
     s3 = boto3.resource('s3')
