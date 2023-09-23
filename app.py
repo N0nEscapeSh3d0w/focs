@@ -203,7 +203,7 @@ def enrollDiploma():
     #---ic(back)--------------
     icb_in_s3 = "enroll_id-" + str(enroll_id) + "_png"
     s3.Bucket(custombucket).put_object(Key=icb_in_s3, Body=back_ic_file, ContentType=back_ic_file.content_type)
-    icf_url = f"https://{custombucket}.s3.amazonaws.com/{icb_in_s3}"  
+    icb_url = f"https://{custombucket}.s3.amazonaws.com/{icb_in_s3}"  
 
     #---cert--------------
     cert_in_s3 = "enroll_id-" + str(enroll_id) + "_png"
