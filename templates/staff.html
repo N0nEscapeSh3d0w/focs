@@ -69,7 +69,8 @@
                         <div class="singel-teachers mt-30 text-center">
 
                             <div class="image">
-                                <img src="{{ url_for('static', filename='img/icon/job-list' + row[0]|string + '.png') }}" alt="Teachers">
+                                <img src="{{ url_for('static', filename='img/icon/job-list' + row[0]|string + '.png') }}"
+                                    alt="Teachers">
                             </div>
                             <div class="cont">
                                 <a href="{{ url_for('jobDetails', id=row[0]) }}">
@@ -101,6 +102,7 @@
                     </div>
                 </div> <!-- row -->
             </div> <!-- container -->
+        </div>
     </section>
 
     <!--====== TEACHERS PART ENDS ======-->
