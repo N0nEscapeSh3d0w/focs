@@ -408,6 +408,7 @@
       function checkQualification() {
         if (checkForDuplicates()) {
             alert("Duplicate Or Empty subjects are not allowed.");
+            break;
         } else {
             // No duplicates found, submit the form
             document.querySelector(".form").submit();
