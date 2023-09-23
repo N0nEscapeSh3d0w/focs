@@ -139,7 +139,7 @@
                       <div class="input-box" id="input-box-1">
                           <div class="column">
                               <div class="select-box">
-                                  <select id="subject1" name="subject" required>
+                                  <select id="subject1" name="subject1" required>
                                       <option value="" disabled selected>Select Subject</option>
          
                                         {% for row in subject %}
@@ -150,7 +150,7 @@
                               </div>
                               
                               <div class="select-box">
-                                  <select id="grade1" name="grade" required>
+                                  <select id="grade1" name="grade1" required>
                                       <option value="" disabled selected>Select Grade</option>
                                       <!-- Add your grade options here -->
                                           {% for row in grade %}
@@ -167,7 +167,7 @@
                           <div class="column">
                              
                               <div class="select-box">
-                                  <select id="subject2" name="subject" required>
+                                  <select id="subject2" name="subject2" required>
                                       <option value="" disabled selected>Select Subject</option>
                                        {% for row in subject %}
                                                   <option value="{{row[0]}}">{{row[1]}}</option>
@@ -176,7 +176,7 @@
                                   </select>
                               </div>
                               <div class="select-box">
-                                  <select id="grade2" name="grade" required>
+                                  <select id="grade2" name="grade2" required>
                                       <option value="" disabled selected>Select Grade</option>
                                       <!-- Add your grade options here -->
                                        {% for row in grade %}
@@ -189,7 +189,7 @@
                       <div class="input-box" id="input-box-3">
                           <div class="column">
                               <div class="select-box">
-                                  <select id="subject3" name="subject" required>
+                                  <select id="subject3" name="subject3" required>
                                       <option value="" disabled selected>Select Subject</option>
                                         {% for row in subject %}
                                                   <option value="{{row[0]}}">{{row[1]}}</option>
@@ -198,7 +198,7 @@
                                   </select>
                               </div>
                               <div class="select-box">
-                                  <select id="grade3" name="grade" required>
+                                  <select id="grade3" name="grade3" required>
                                       <option value="" disabled selected>Select Grade</option>
                                       <!-- Add your grade options here -->
                                        {% for row in grade %}
@@ -322,7 +322,7 @@
                 inputBox.innerHTML = `
                     <div class="column">
                         <div class="select-box">
-                            <select id="subject${index}" name="subject" required>
+                            <select id="subject${index}" name="subject${index}" required>
                                 <option value="" disabled selected>Select Subject</option>
                                  {% for row in subject %}
                                     <option value="{{row[0]}}">{{row[1]}}</option>
@@ -330,7 +330,7 @@
                             </select>
                         </div>
                         <div class="select-box">
-                            <select id="grade${index}" name="grade" required>
+                            <select id="grade${index}" name="grade${index}" required>
                                 <option value="" disabled selected>Select Grade</option>
                                 <!-- Add your grade options here -->
                                 {% for row in grade %}
