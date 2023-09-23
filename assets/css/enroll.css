@@ -178,3 +178,17 @@ button.success-btn:hover {
   background: #32853d;
 }
 
+button.success-btn:disabled {
+ height: 55px;
+  width: 100%;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 30px;
+  border: none;
+  cursor: not-allowed;
+  transition: all 0.2s ease;
+  background: grey;
+}
+
+
