@@ -183,10 +183,11 @@ def enrollDiploma():
     count_cursor.execute(countstatement)
     result = count_cursor.fetchone()
 
-    if result is None:
+    if result is None or result[0] is None:
         enroll_id = 1
     else:
-        enroll_id = result + 1
+        enroll_id = int(result[0]) + 1
+        
 
     front_ic_file = request.files('frontIc')
     back_ic_file = request.files('backIc')
@@ -224,11 +225,11 @@ def enrollDiploma():
             count_cursor = db_conn.cursor()
             count_cursor.execute(countstatement)
             result = count_cursor.fetchone()
-        
-            if result is None:
+
+            if result is None or result[0] is None:
                 em_id = 1
             else:
-                em_id = result + 1
+                em_id = int(result[0]) + 1
                 
             insert_cursor = db_conn.cursor()
             insert_cursor.execute(insert_statement, (em_id, enroll_id, subject, user_grade))
