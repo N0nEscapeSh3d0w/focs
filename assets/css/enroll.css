@@ -191,4 +191,29 @@ button.success-btn:disabled {
   background: grey;
 }
 
+a.success-link {
+  height: 55px;
+  width: 100%;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer; /* Change 'not-allowed' to 'pointer' */
+  transition: all 0.2s ease;
+  background: grey;
+}
+
+a.success-link:hover {
+  height: 55px;
+  width: 100%;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  border: none;
+  cursor: pointer; /* You can remove this line as it's redundant */
+  transition: all 0.2s ease;
+  background: #32853d;
+}
+
 
