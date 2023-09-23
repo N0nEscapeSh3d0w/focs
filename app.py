@@ -100,7 +100,7 @@ def getSubjectWithCampus():
 
     return jsonify(result)
 
-@app.route("/enrollDiploma", methods=['GET'])
+@app.route("/enrollDiploma", methods=['POST'])
 @csrf.exempt
 def enrollDiploma():
         
