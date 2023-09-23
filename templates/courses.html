@@ -96,9 +96,9 @@
               <!-- COMPARE BUTTON -->
 
            {% if name[0] == 4: %}
-               <div class="row">
+            <div id="page-banner" class="bg_cover pt-25 pb-25 row" data-overlay="8" style="background-image: url( {{ url_for('static', filename='images/page-banner-2.jpg') }} )">
                    <div class="col-lg-6">
-                       <nav class="courses-pagination mt-50">
+                       <nav class="courses-pagination">
                            <ul class="pagination justify-content-center">
                                <ul class="nav" id="myTab" role="tablist">
                                    <a href="{{ url_for('compare_prog') }}" class="main-btn">Programme Comparation</a>
@@ -107,7 +107,7 @@
                        </nav> <!-- courses pagination -->
                    </div>
                    <div class="col-lg-6">
-                       <nav class="courses-pagination mt-50">
+                       <nav class="courses-pagination">
                            <ul class="pagination justify-content-center">
                                <ul class="nav" id="myTab" role="tablist">
                                    <a href="/enroll" class="main-btn">Diploma Enrollment</a>
