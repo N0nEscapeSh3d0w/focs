@@ -175,7 +175,7 @@ def enrollDiploma():
         if user_grade <= '7':
             credit_number += 1
 
-    if(credit_number < number_of_credit[0] OR mismatched_subjects):
+    if(credit_number < number_of_credit[0] or mismatched_subjects):
         return render_template("enrollFail.html", mismatched = mismatched_subjects, user_credit = credit_number, grade=grades, subject=subjects)
 
     #---Add data to db-----------------------------------------
