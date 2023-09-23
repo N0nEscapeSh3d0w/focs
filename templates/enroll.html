@@ -383,41 +383,74 @@
 
 
     });
-      // Check duplication
-      function checkForDuplicates() {
-          const selectedSubjects = new Set(); // Create a set to store selected subjects
-          let hasDuplicates = false;
-      
-          // Iterate through the subject dropdowns and check for duplicates
-          for (let i = 1; i <= subjectCount; i++) {
-              const subjectDropdown = document.getElementById(`subject${i}`);
-              const selectedSubject = subjectDropdown.value;
-                console.log(selectedSubject)
-      
-              // Check if the selected subject is already in the set
-              if (selectedSubjects.has(selectedSubject)) {
-                  hasDuplicates = true;
-                  break; // Break out of the loop if a duplicate is found
-              } else {
-                  selectedSubjects.add(selectedSubject); // Add the selected subject to the set
-              }
+      // Function to check if all required fields are filled
+      function checkFormCompletion() {
+        const requiredFields = document.querySelectorAll('[required]');
+        let isFormComplete = true;
+
+        requiredFields.forEach((field) => {
+          if (field.type === 'checkbox' && !field.checked) {
+            isFormComplete = false;
+          } else if (field.value.trim() === '') {
+            isFormComplete = false;
           }
-      
-          return hasDuplicates; // Return true if duplicates are found, otherwise false
+        });
+
+        return isFormComplete;
       }
 
-      function checkQualification() {
+      // Function to enable/disable the enroll button based on form completion
+      function updateEnrollButtonState() {
+        const enrollButton = document.getElementById('enrollButton');
+        enrollButton.disabled = !checkFormCompletion();
+      }
 
-            event.preventDefault();
-            
-        if (checkForDuplicates()) {
-            alert("Duplicate Or Empty subjects are not allowed.");
-          
-        } else {
-            // No duplicates found, submit the form
-             document.querySelector("#enrollForm").submit();
+      // Add event listeners for form elements
+      document.querySelectorAll('input, select, textarea').forEach((element) => {
+        element.addEventListener('input', updateEnrollButtonState);
+      });
+
+      // Add an event listener for the checkbox
+      document.getElementById('acknowledge').addEventListener('change', updateEnrollButtonState);
+
+      // Initialize the button state
+      updateEnrollButtonState();
+
+      // Function to check duplication
+      function checkForDuplicates() {
+        const selectedSubjects = new Set(); // Create a set to store selected subjects
+        let hasDuplicates = false;
+
+        // Iterate through the subject dropdowns and check for duplicates
+        for (let i = 1; i <= subjectCount; i++) {
+          const subjectDropdown = document.getElementById(`subject${i}`);
+          const selectedSubject = subjectDropdown.value;
+
+          // Check if the selected subject is already in the set
+          if (selectedSubjects.has(selectedSubject)) {
+            hasDuplicates = true;
+            break; // Break out of the loop if a duplicate is found
+          } else {
+            selectedSubjects.add(selectedSubject); // Add the selected subject to the set
+          }
         }
-    }
+
+        return hasDuplicates; // Return true if duplicates are found, otherwise false
+      }
+
+      // Function to handle form submission
+      function checkQualification() {
+        event.preventDefault();
+
+        if (checkForDuplicates()) {
+          alert('Duplicate Or Empty subjects are not allowed.');
+        } else if (checkFormCompletion()) {
+          // No duplicates found, and form is complete, submit the form
+          document.querySelector('#enrollForm').submit();
+        } else {
+          alert('Please fill out all required fields.');
+        }
+      }
       
 </script>
 
