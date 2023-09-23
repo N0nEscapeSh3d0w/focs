@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+
+{% include "Head.html" %}
+<link rel="stylesheet" href="css/enroll.css">
+
+<body>
+    <form action="/enrollDiploma" id="enrollForm" method="POST" enctype="multipart/form-data">
+            
+        <section class="container" id="section1">
+                 <header>Diploma Enroll Form</header>
+
+                     <div class="input-box">
+                         <label>Full Name</label>
+                         <input type="text" name="name" placeholder="Enter full name" required />
+                     </div>
+         
+                     <div class="input-box">
+                         <label>MyKad No.</label>
+                         <input type="text" name="ic" placeholder="Enter My Kad NO." required />
+                     </div>
+         
+                     <div class="gender-box">
+                        <label>Gender</label>
+                         <div class="gender-option">
+                             <div class="gender">
+                                 <input type="radio" id="check-male" name="gender" value="Male" checked />
+                                 <label for="check-male">Male</label>
+                             </div>
+                             <div class="gender">
+                                 <input type="radio" id="check-female" value="Female" name="gender" />
+                                 <label for="check-female">Female</label>
+                             </div>
+                         </div>
+                     </div>
+         
+                     <div class="input-box address">
+                         <label>Address</label>
+                         <input type="text" name="address" placeholder="Enter street address" required />
+         
+                         <div class="column">
+                             <div class="select-box" name="state">
+                                 <select name="state" required>
+                                     <option  hidden>State</option>
+                                     <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                     <option value="Selangor">Selangor</option>
+                                     <option value="Melaka">Melaka</option>
+                                     <option value="Johor">Johor</option>
+                                     <option value="Pahang">Pahang</option>
+                                     <option value="Penang">Penang</option>
+                                     <option value="Perak">Perak</option>
+                                     <option value="Kedah">Kedah</option>
+                                     <option value="Terengganu">Terengganu</option>
+                                     <option value="Kelantan">Kelantan</option>
+                                     <option value="Sabah">Sabah</option>
+                                     <option value="Sarawak">Sarawak</option>
+                                     <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                     <option value="Perlis">Perlis</option>
+                                 </select>
+                             </div>
+                             <input type="text" name="city" placeholder="Enter your city" required />
+                         </div>
+                         <div class="column">
+                             <input type="number" name="postCode" placeholder="Enter postal code" required />
+                         </div>
+                     </div>
+         
+                     <div class="column">
+                         <div class="input-box">
+                             <label>Phone Number</label>
+                             <input type="text" name="phoneNo" placeholder="Enter phone number" required />
+                         </div>
+                         <div class="input-box">
+                             <label>Email Address</label>
+                             <input type="text" name="email" placeholder="Enter email address" required />
+                         </div>
+                     </div>
+         
+                     <div class="input-box programme">
+                         <label>Programme</label>
+                         <div class="input-box">
+                                 <div class="select-box">
+                                     <select  name="campus" id="campusSelect" required>
+                                         <option hidden>Campus</option>
+                                           {% for row in campus %}
+                                               <option value="{{row[0]}}">{{row[1]}}</option>
+                                           {% endfor %}
+                                     </select>
+                                 </div>
+                              
+                                  <div class="select-box">
+                                     <select  name="program" id="programSelect" required>
+                                         <option hidden>Please Select Campus First</option>
+                                     </select>
+                                 </div>
+                     </div>
+         
+                     <div class="file-box input-box column">
+                           <label>MyKad (Front)</label>
+                         <input type="file" id="frontIc" name="frontIc" required>
+                     </div>
+         
+                     <div class="file-box input-box column">
+                         <label>MyKad (Back)</label>
+                         <input type="file" id="backIc" name="backIc" required>
+                     </div>
+             </section>
+
+            <section class="container" style="margin-top:20px;">
+
+                <input type="hidden" name="academic_type" id="ache_type" />
+
+                <h5>Select Your Academic Level</h5>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <button type="button" onclick="viewSTPM()">STPM</button>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <button type="button" onclick="viewDiploma()">Foundation/Diploma</button>
+                    </div>
+                </div>
+
+            </section>
+                           
+         <section class="container" id="ache_input" style="margin-top:20px;" hidden>
+             <header>Academic Qualification</header>
+            
+           
+
+                 <div class="file-box input-box column">
+                    <label>Result Certificate</label>
+                    <input type="file" id="resultCert" name="resultCert" required>
+                </div>
+     
+                <div id="stpm-container" class="mt-20">
+
+                    <div class="input-box">
+                        <label>Qualification</label>
+                           
+                            <input type="text" name="resultYear" placeholder="Year" required />
+                    </div>
+                    
+                     <label style="padding-top: 20px;">Subject & Grade (Maximum 5, Minimum 4)</label>
+                     <div class="input-box" id="input-box-1">
+                         <div class="column">
+                             <div class="select-box">
+                                 <select id="subject1" name="subject1" >
+                                     <option value="" disabled selected>Select Subject</option>
+        
+                                       {% for row in subject %}
+                                                 <option value="{{row[0]}}">{{row[1]}}</option>
+                                       {% endfor %}
+                                     <!-- Add more subjects here -->
+                                 </select>
+                             </div>
+                             
+                             <div class="select-box">
+                                 <select id="grade1" name="grade1" >
+                                     <option value="" disabled selected>Select Grade</option>
+                                     <!-- Add your grade options here -->
+                                         {% for row in grade %}
+                                                 <option value="{{row[0]}}">{{row[1]}}</option>
+                                       {% endfor %}
+                                 </select>
+                             </div>
+                         </div>
+                     </div>
+     
+     
+     
+                     <div class="input-box" id="input-box-2">
+                         <div class="column">
+                            
+                             <div class="select-box">
+                                 <select id="subject2" name="subject2" >
+                                     <option value="" disabled selected>Select Subject</option>
+                                      {% for row in subject %}
+                                                 <option value="{{row[0]}}">{{row[1]}}</option>
+                                       {% endfor %}
+                                     <!-- Add more subjects here -->
+                                 </select>
+                             </div>
+                             <div class="select-box">
+                                 <select id="grade2" name="grade2" >
+                                     <option value="" disabled selected>Select Grade</option>
+                                     <!-- Add your grade options here -->
+                                      {% for row in grade %}
+                                                 <option value="{{row[0]}}">{{row[1]}}</option>
+                                       {% endfor %}
+                                 </select>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="input-box" id="input-box-3">
+                         <div class="column">
+                             <div class="select-box">
+                                 <select id="subject3" name="subject3" >
+                                     <option value="" disabled selected>Select Subject</option>
+                                       {% for row in subject %}
+                                                 <option value="{{row[0]}}">{{row[1]}}</option>
+                                       {% endfor %}
+                                     <!-- Add more subjects here -->
+                                 </select>
+                             </div>
+                             <div class="select-box">
+                                 <select id="grade3" name="grade3" >
+                                     <option value="" disabled selected>Select Grade</option>
+                                     <!-- Add your grade options here -->
+                                      {% for row in grade %}
+                                                 <option value="{{row[0]}}">{{row[1]}}</option>
+                                       {% endfor %}
+                                 </select>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="input-box" id="input-box-3">
+                        <div class="column">
+                            <div class="select-box">
+                                <select id="subject4" name="subject4" >
+                                    <option value="" disabled selected>Select Subject</option>
+                                      {% for row in subject %}
+                                                <option value="{{row[0]}}">{{row[1]}}</option>
+                                      {% endfor %}
+                                    <!-- Add more subjects here -->
+                                </select>
+                            </div>
+                            <div class="select-box">
+                                <select id="grade4" name="grade4" >
+                                    <option value="" disabled selected>Select Grade</option>
+                                    <!-- Add your grade options here -->
+                                     {% for row in grade %}
+                                                <option value="{{row[0]}}">{{row[1]}}</option>
+                                      {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-box" id="input-box-3">
+                        <div class="column">
+                            <div class="select-box">
+                                <select id="subject5" name="subject5" >
+                                    <option value="" disabled selected>Select Subject</option>
+                                      {% for row in subject %}
+                                                <option value="{{row[0]}}">{{row[1]}}</option>
+                                      {% endfor %}
+                                    <!-- Add more subjects here -->
+                                </select>
+                            </div>
+                            <div class="select-box">
+                                <select id="grade5" name="grade5" >
+                                    <option value="" disabled selected>Select Grade</option>
+                                    <!-- Add your grade options here -->
+                                     {% for row in grade %}
+                                                <option value="{{row[0]}}">{{row[1]}}</option>
+                                      {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+  
+
+                <div id="diploma-container" class="mt-20">
+                    <div class="input-box">
+                        <label>Programme Name</label>
+                           
+                            <input type="text" name="programmeName" id="programmeName" placeholder="Programme Name of Your Certificate" required />
+                    </div>
+
+                    <div class="input-box">
+                        <label>CGPA</label>
+                           
+                            <input type="number" step="0.001" min="0" max="4" name="cgpa" id="cgpa" placeholder="Programme Name of Your Certificate" required />
+                    </div>
+                </div>
+                
+
+               <div class="acknowledgment" style="padding-top:25px;">
+                     <input type="checkbox" id="acknowledge" name="acknowledge" required>
+                     <label for="acknowledge">I declare that the information is correct and unchangeable upon submission.</label>
+               
+                     <button class="success-btn" id="enrollButton" type="submit">Check Qualification and Enroll</button>
+                 </div>
+         </section>
+   </form>
+    
+   
+   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+    <script>
+        function viewSTPM() {
+            var section = document.getElementById("ache_input");
+            section.removeAttribute("hidden");
+
+            document.getElementById("stpm-container").style.display = "block";
+            document.getElementById("diploma-container").style.display = "none";
+
+            
+            document.getElementById("programmeName").removeAttribute("required");
+            document.getElementById("cgpa").removeAttribute("required");
+
+            var inputElement = document.getElementById("ache_type");
+            inputElement.value = "1";
+
+        }
+
+        function viewDiploma() {
+            var section = document.getElementById("ache_input");
+            section.removeAttribute("hidden");
+            
+            document.getElementById("stpm-container").style.display = "none";
+            document.getElementById("diploma-container").style.display = "block";
+
+            document.getElementById("programmeName").setAttribute("required", "required");
+            document.getElementById("cgpa").setAttribute("required", "required");
+
+            var inputElement = document.getElementById("ache_type");
+            inputElement.value = "2";
+        }
+
+
+    </script>
+</body>
+
+</html>
