@@ -5,6 +5,7 @@ from pymysql import connections
 import os
 import boto3
 import socket
+from io import BytesIO
 import pdfplumber
 from flask import send_file
 from werkzeug.utils import secure_filename
@@ -16,15 +17,15 @@ customdb = "focsDB"
 custombucket = "semfocs-bucket"
 customregion = "us-east-1"
 
-app = Flask(__name__, static_folder='assets')
-
+app = Flask(__name__, static_folder='assets')\
 app.secret_key = 'focs_assignment'
 csrf = CSRFProtect(app)
-#Session
 
+#Session
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+
 bucket = custombucket
 region = customregion
 
@@ -36,6 +37,7 @@ db_conn = connections.Connection(
     db=customdb
 
 )
+
 output = {}
 
 @app.route("/", methods=['GET', 'POST'])
