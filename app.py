@@ -207,13 +207,13 @@ def displayStaff():
 
 
 
-@app.route('/displayStaff/staffDetails/<string:id>')
-def staffDetails(id):
+@app.route('/displayStaff/staffDetails/<string:staff_id>')
+def staffDetails(staff_id):
 
     #Get Internship details
     details_statement = """SELECT s.staff_id, s.staff_name, s.position, s.study_level, s.email, s.specialization, s.areaInterest, s.img FROM Staff s INNER JOIN Department d WHERE s.depart_id = d.depart_id AND staff_id = %s"""
     cursor = db_conn.cursor()
-    cursor.execute(details_statement, (id))
+    cursor.execute(details_statement, (staff_id))
     details = cursor.fetchone()
     cursor.close()
     
