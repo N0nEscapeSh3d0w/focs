@@ -391,6 +391,7 @@
           for (let i = 1; i <= subjectCount; i++) {
               const subjectDropdown = document.getElementById(`subject${i}`);
               const selectedSubject = subjectDropdown.value;
+                console.log(selectedSubject)
       
               // Check if the selected subject is already in the set
               if (selectedSubjects.has(selectedSubject)) {
