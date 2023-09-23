@@ -1,3 +1,4 @@
+from curses import flash
 from flask import Flask, render_template, request, url_for, session, jsonify
 from flask_wtf.csrf import CSRFProtect, CSRFError
 from flask_session import Session
@@ -17,7 +18,7 @@ customdb = "focsDB"
 custombucket = "semfocs-bucket"
 customregion = "us-east-1"
 
-app = Flask(__name__, static_folder='assets')\
+app = Flask(__name__, static_folder='assets')
 app.secret_key = 'focs_assignment'
 csrf = CSRFProtect(app)
 
