@@ -104,7 +104,23 @@ def getSubjectWithCampus():
 @app.route("/enrollDiploma", methods=['POST'])
 @csrf.exempt
 def enrollDiploma():
-        
+
+      # Retrieve data from the form
+    full_name = request.form.get('name')
+    mykad_no = request.form.get('ic')
+    gender = request.form.get('gender')
+    address = request.form.get('address')
+    state = request.form.get('state')
+    city = request.form.get('city')
+    post_code = request.form.get('postCode')
+    phone_no = request.form.get('phoneNo')
+    email = request.form.get('email')
+    campus = request.form.get('campus')
+    program = request.form.get('program')
+    qualification = request.form.get('qualification')
+    result_year = request.form.get('resultYear')
+    type_of_result = request.form.get('typeOfResult')
+    acknowledge = request.form.get('acknowledge')
 
     # Retrieve subject and grade data (loop through the fields)
     subjects = []
@@ -193,22 +209,7 @@ def enrollDiploma():
     s3.Bucket(custombucket).put_object(Key=cert_in_s3, Body=resultCert_file, ContentType=resultCert_file.content_type)
     cert_url = f"https://{custombucket}.s3.amazonaws.com/{cert_in_s3}"  
 
-    # Retrieve data from the form
-    full_name = request.form.get('name')
-    mykad_no = request.form.get('ic')
-    gender = request.form.get('gender')
-    address = request.form.get('address')
-    state = request.form.get('state')
-    city = request.form.get('city')
-    post_code = request.form.get('postCode')
-    phone_no = request.form.get('phoneNo')
-    email = request.form.get('email')
-    campus = request.form.get('campus')
-    program = request.form.get('program')
-    qualification = request.form.get('qualification')
-    result_year = request.form.get('resultYear')
-    type_of_result = request.form.get('typeOfResult')
-    acknowledge = request.form.get('acknowledge')
+  
 
     enrollstatement = "INSERT INTO Diploma_enroll VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     enroll_cursor = db_conn.cursor()
