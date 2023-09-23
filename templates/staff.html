@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
                     {% for row in staff %}
-                    <a href="{{ url_for('staffDetails', id=row[0]) }}">
+                    <a href="{{ url_for('staffDetails', staff_id=row[0]) }}">
                         <div class="singel-teachers mt-30 text-center">
 
                             <div class="image">
@@ -73,7 +73,7 @@
                                     alt="Teachers">
                             </div>
                             <div class="cont">
-                                <a href="{{ url_for('staffDetails', id=row[0]) }}">
+                                <a href="{{ url_for('staffDetails', staff_id=row[0]) }}">
                                     <h6>{{row[2]}}</h6>
                                 </a>
                                 <span>{{row[3]}}</span>
