@@ -185,9 +185,9 @@ def enrollDiploma():
     count_cursor.execute(countstatement)
     result = count_cursor.fetchone()
 
-     if result is None or result[0] is None:
+    if result is None:
         enroll_id = 1
-     else:
+    else:
         enroll_id = result + 1
     
     logo_in_s3 = "enroll_id-" + str(com_id) + "_png"
