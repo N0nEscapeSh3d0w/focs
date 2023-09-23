@@ -322,6 +322,36 @@
 
 
     </script>
+
+    <script>
+      
+          $(document).ready(function () {
+              $('#campusSelect').change(function () {
+                  var campus_id = $(this).val();
+                  
+                  $.ajax({
+                      url: "/getSubjectWithCampusDegree",
+                      type: "GET",
+                      data: { campus_id: campus_id },
+                      success: function (data) {
+                          // Clear existing program options
+                          $('#programSelect').empty();
+      
+                          // Populate program options
+                          data.forEach(function (program) {
+                              $('#programSelect').append($('<option>', {
+                                  value: program.prog_id,
+                                  text: program.prog_name
+                              }));
+                          });
+                      },
+                      error: function (error) {
+                          console.error(error);
+                      }
+                  });
+              });
+          });
+      </script>
 </body>
 
 </html>
