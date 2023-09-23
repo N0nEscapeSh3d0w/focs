@@ -188,7 +188,7 @@ def enrollDiploma():
 def displayStaff():
    
    #Get All Internship
-    staff_statement = """SELECT s.staff_id, s.staff_name, s.position,s.img FROM Staff s INNER JOIN Department d WHERE s.depart_id = d.depart_id"""
+    staff_statement = """SELECT s.staff_id, s.staff_name, s.position,s.img FROM Staffs s INNER JOIN Department d WHERE s.depart_id = d.part_id"""
     cursor = db_conn.cursor()
     cursor.execute(staff_statement)
     result = cursor.fetchall()
@@ -204,6 +204,20 @@ def displayStaff():
 
 
     return render_template('staff.html', staff = result, department = depart)
+
+
+
+@app.route('/displayStaff/staffDetails/<int:id>')
+def staffDetails(id):
+
+    #Get Internship details
+    details_statement = """SELECT s.staff_id, s.staff_name, s.position, s.study_level, s.email, s.specialization, s.areaInterest, s.img FROM Staff s INNER JOIN Department d WHERE s.depart_id = d.depart_id AND staff_id = %s"""
+    cursor = db_conn.cursor()
+    cursor.execute(details_statement, (id))
+    details = cursor.fetchone()
+    cursor.close()
+    
+    return render_template('teachers-singel.html', staff = details)
 
 
 @app.route('/courses/<int:id>')
