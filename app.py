@@ -101,7 +101,7 @@ def enroll():
     grad_cursor.close()
 
 
-    return render_template('enroll.html', campus=result, subject=subj, grade = grad)
+    return render_template('enrollDegree.html', campus=result, subject=subj, grade = grad)
 
 @app.route("/getSubjectWithCampus", methods=['GET'])
 def getSubjectWithCampus():
