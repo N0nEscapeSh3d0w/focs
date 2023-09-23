@@ -214,7 +214,7 @@ def enrollDiploma():
 
     enrollstatement = "INSERT INTO Diploma_enroll VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     enroll_cursor = db_conn.cursor()
-    enroll_cursor.execute(enrollstatement, (enroll_id, full_name, mykad_no, gender, address, state, city, post_code, email, program, icf_url, icb_url, qualification, result_year, type_of_result, cert_url ))
+    enroll_cursor.execute(enrollstatement, (enroll_id, full_name, mykad_no, gender, address, state, city, post_code, phone_no, email, program, icf_url, icb_url, qualification, result_year, type_of_result, cert_url ))
     db_conn.commit()
 
     insert_statement = "INSERT INTO Enroll_grade VALUES (%s, %s, %s, %s)"
