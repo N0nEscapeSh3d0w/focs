@@ -509,6 +509,59 @@ def search():
 
     return render_template('search_result.html', results=results)
 
+#------Inquiry--------------------
+@app.route("/facility", methods=['GET', 'POST'])
+def facility():
+    return render_template('facility.html')
+
+@app.route("/FAQ", methods=['GET', 'POST'])
+def faq():
+    session.pop('msg', default=None)
+    return render_template('FAQ.html', inquiry=None)
+    
+@app.route('/submitInquiry', methods=['POST'])
+def submitInquiry():
+    userName = request.form['userName']
+    userEmail = request.form['userEmail']
+    question = request.form['question']
+    status = "pending"
+
+    cursor = db_conn.cursor()
+
+    # Get the maximum inquiry number from the database
+    cursor.execute("SELECT MAX(CAST(SUBSTRING(inquiry_id, 8) AS SIGNED)) FROM Inquiry")
+    max_inquiry_number = cursor.fetchone()[0]
+
+    if max_inquiry_number is None:
+        max_inquiry_number = 0
+
+    # Increment the inquiry number
+    new_inquiry_number = max_inquiry_number + 1
+
+    # Create the new inquiry_id
+    inquiry_id = f'Inquiry{new_inquiry_number}'
+
+    insert_sql = "INSERT INTO Inquiry (inquiry_id, userName, userEmail, question, status) VALUES (%s, %s, %s, %s, %s)"
+    cursor.execute(insert_sql, (inquiry_id, userName, userEmail, question, status))
+    db_conn.commit()  # Commit the changes to the database
+
+    cursor.close()
+
+    session["msg"] = inquiry_id
+
+    return render_template('FAQ.html', inquiry=None)
+
+@app.route('/viewInquiry', methods=['GET','POST'])
+def viewInquiry():
+    inquiry_id = request.form['inquiry_id']
+
+    cursor = db_conn.cursor()
+
+    statement = "SELECT * FROM Inquiry WHERE inquiry_id = %s"
+    cursor.execute(statement, (inquiry_id))
+    result = cursor.fetchone()
+
+    return render_template('FAQ.html', inquiry=result)
         
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
