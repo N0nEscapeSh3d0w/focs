@@ -165,7 +165,7 @@ def enrollDiploma():
     credit_statement = "SELECT number_credit FROM Credit WHERE prog_id = %s"
     credit_cursor = db_conn.cursor()
     credit_cursor.execute(credit_statement, program)
-    number_of_credit = credit_cursor.fetchall()
+    number_of_credit = credit_cursor.fetchone()
     credit_cursor.close()
     
     credit_number = 0
