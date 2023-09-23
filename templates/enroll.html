@@ -8,7 +8,8 @@
 
 <body>
 
-      <form action="/" method="POST">
+      <form action="/enrollDiploma" id="enrollForm" method="POST" enctype="multipart/form-data">
+            
          <section class="container" id="section1">
                   <header>Diploma Enroll Form</header>
 
@@ -414,7 +415,7 @@
           
         } else {
             // No duplicates found, submit the form
-            document.querySelector(".form").submit();
+             document.querySelector("#enrollForm").submit();
         }
     }
       
