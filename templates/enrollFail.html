@@ -10,11 +10,6 @@
 
     <section class="container">
 
-            {{mismatched }}
-      {{user_credit }}
-      {{grade}}
-      {{subject}}
-
         <header>Enrollment Unsuccessful!</header>
 
       {% if mismatched == None: %}
@@ -22,10 +17,20 @@
 
       {% else: %}
         <p>Sorry, your enrollment could not be processed because you have not met the compulsory subject requirements for this program.</p>
-      
+
+      {%endif%}
+
+            <p>Please review your subject grades and ensure you meet the required grades for the compulsory subjects before submitting your enrollment.</p>
+    
+                 <div style="padding-top:25px;">
+                   
+                
+                      <button class="success-btn" >Back to Main Page</button>
+                  </div>
+    
     </section>
 
-         <p>Please review your subject grades and ensure you meet the required grades for the compulsory subjects before submitting your enrollment.</p>
+      
 
 
 </body>
