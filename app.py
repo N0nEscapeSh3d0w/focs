@@ -72,13 +72,36 @@ def enroll():
     grad = grad_cursor.fetchall()
     grad_cursor.close()
 
-    count_st = "SELECT COUNT(*) FROM Grade"
+    count_st = "SELECT COUNT(*) FROM Subject"
     st_cursor = db_conn.cursor()
     st_cursor.execute(count_st)
     st = st_cursor.fetchone()
     st_cursor.close()
 
     return render_template('enroll.html', campus=result, subject=subj, grade = grad, totalSubj = st)
+
+@app.route("/enrollDegree", methods=['GET', 'POST'])
+def enroll():
+    doc_statement = "SELECT id, name FROM Campus"
+    doc_cursor = db_conn.cursor()
+    doc_cursor.execute(doc_statement)
+    result = doc_cursor.fetchall()
+    doc_cursor.close()
+
+    statement = "SELECT id, full_name FROM Stpm_subject"
+    cursor = db_conn.cursor()
+    cursor.execute(statement)
+    subj = cursor.fetchall()
+    cursor.close()
+
+    grad_statement = "SELECT value, name FROM Stpm_grade"
+    grad_cursor = db_conn.cursor()
+    grad_cursor.execute(grad_statement)
+    grad = grad_cursor.fetchall()
+    grad_cursor.close()
+
+
+    return render_template('enroll.html', campus=result, subject=subj, grade = grad)
 
 @app.route("/getSubjectWithCampus", methods=['GET'])
 def getSubjectWithCampus():
@@ -89,6 +112,26 @@ def getSubjectWithCampus():
         "FROM Programme "
         "INNER JOIN CampusList ON Programme.prog_id = CampusList.prog_id "
         "WHERE CampusList.cam_id = %s AND Programme.lvl_id = 4"
+    )
+
+    cursor = db_conn.cursor()
+    cursor.execute(statement, (campus_id))
+    result = cursor.fetchall()
+    cursor.close()
+
+    result = [{'prog_id': row[0], 'prog_name': row[1]} for row in result]
+
+    return jsonify(result)
+
+@app.route("/getSubjectWithCampusDegree", methods=['GET'])
+def getSubjectWithCampusDegree():
+    campus_id = request.args.get('campus_id') 
+    
+    statement = (
+        "SELECT Programme.prog_id, Programme.prog_name "
+        "FROM Programme "
+        "INNER JOIN CampusList ON Programme.prog_id = CampusList.prog_id "
+        "WHERE CampusList.cam_id = %s AND Programme.lvl_id = 3"
     )
 
     cursor = db_conn.cursor()
